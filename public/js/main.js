@@ -60,7 +60,7 @@ $(function() {
 
     socket.on('atem connection', function (connected) {
         if (connected) {
-            $('#alerts').text();
+            $('#alerts').text('');
         } else {
             $('#alerts').text('Connection to ATEM lost');
         }

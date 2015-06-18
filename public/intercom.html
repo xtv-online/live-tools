@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>WebRTC Test</title> 
+    <style type="text/css">
+      body{
+      }
+      #audioplay{
+      }
+    </style>
+    <script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/intercom.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script> </script>
+  </head>
+  
+  <body>
+    <div id="welcome"></div>
+    <audio id="audioplay" autoplay ></audio>
+    
+    <form class="form-inline">
+      <div class="form-group">
+        <label class="destination">Call</label>
+        <input type="text" id="destination" class="form-control" placeholder="Peer ID">
+      </div>
+      <div id="startCall" class="btn btn-default">Call Now</div>
+    </form>
+    
+    <script type="text/javascript">
+      audio = document.getElementById("audioplay");
+      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+      
+      // Connect to Broker
+      var peer = new Peer(getURLParameter('id'), {key: 'INSERKEY'});
+      peer.on('open', function(id) {
+        $('#welcome').text("Peer ID: " + id);
+      });
+     
+      
+      // RX
+      peer.on('call', function(call) {
+        console.log('Received Call, call getUserMedia', call);
+        
+        
+        navigator.getUserMedia(
+          {video: false, audio: true}, 
+          function(stream) {
+            console.log('Answer call with ', stream);
+            call.answer(stream); // Answer the call with an audio stream.
+            call.on('stream', function(remoteStream) {
+              console.log('Playing remote stream ', remoteStream);
+              audio.src = URL.createObjectURL(remoteStream);
+            });
+          },
+          function(err) {
+            console.log('Failed to get local stream' ,err);
+          }
+        );
+      });
+                
+      
+    </script>
+  </body>
+</html>
