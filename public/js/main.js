@@ -58,4 +58,12 @@ $(function() {
         $('#note span').text(minutes + ':' + seconds);
     });
 
+    socket.on('atem connection', function (connected) {
+        if (connected) {
+            $('#alerts').text();
+        } else {
+            $('#alerts').text('Connection to ATEM lost');
+        }
+    })
+
 });
