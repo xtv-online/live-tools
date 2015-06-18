@@ -9,8 +9,8 @@
     </style>
     <script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="js/intercom.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/intercom.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -24,49 +24,15 @@
   
   <body>
     <div id="welcome"></div>
-    <audio id="audioplay" autoplay ></audio>
-    
+    <div id="playback"></div>
     <form class="form-inline">
       <div class="form-group">
         <label class="destination">Call</label>
         <input type="text" id="destination" class="form-control" placeholder="Peer ID">
       </div>
-      <div id="startCall" class="btn btn-default">Call Now</div>
+      <div id="startCall" class="btn btn-default">Add Contact</div>
     </form>
+    <div id="txcontrol"></div>
     
-    <script type="text/javascript">
-      audio = document.getElementById("audioplay");
-      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-      
-      // Connect to Broker
-      var peer = new Peer(getURLParameter('id'), {key: PEERJSKEY});
-      peer.on('open', function(id) {
-        $('#welcome').text("Peer ID: " + id);
-      });
-     
-      
-      // RX
-      peer.on('call', function(call) {
-        console.log('Received Call, call getUserMedia', call);
-        
-        
-        navigator.getUserMedia(
-          {video: false, audio: true}, 
-          function(stream) {
-            console.log('Answer call with ', stream);
-            call.answer(stream); // Answer the call with an audio stream.
-            call.on('stream', function(remoteStream) {
-              console.log('Playing remote stream ', remoteStream);
-              audio.src = URL.createObjectURL(remoteStream);
-            });
-          },
-          function(err) {
-            console.log('Failed to get local stream' ,err);
-          }
-        );
-      });
-                
-      
-    </script>
   </body>
 </html>
