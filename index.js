@@ -1,18 +1,27 @@
-var path = require('path');
-var logger = require('morgan');
-var http = require('http');
-
-var port = process.env.PORT || 3000;
-
+// Create App, HTTP, ATEM and io
 var express = require('express');
-var app = express();
+var logger = require('morgan');
+var path = require('path');
 
+var app = express();
+var http = require('http').Server(app);
+
+// Log all requests in server output
 app.use(logger('dev'));
+
+// Static route for static requests
 app.use(express.static(path.join(__dirname, 'public')));
 
-var server = http.createServer(app);
-server.listen(port, function() {
-    console.log('Listening on:', port)
+// Route for /
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/public/template.html');
+    console.log('request response');
 });
 
-var modules = require('./modules')(server);
+// Set server to listen
+http.listen(3000, function() {
+    console.log('listening on *:3000');
+});
+
+// Run all modules defined in modules.js
+var modules = require('./modules')(http);
