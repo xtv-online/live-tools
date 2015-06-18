@@ -2,6 +2,9 @@
 logs
 *.log
 
+# Config Files
+public/js/config.js
+
 # Runtime data
 pids
 *.pid

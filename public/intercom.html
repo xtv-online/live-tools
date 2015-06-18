@@ -10,6 +10,7 @@
     <script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/intercom.js"></script>
+    <script src="js/config.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -38,7 +39,7 @@
       navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
       
       // Connect to Broker
-      var peer = new Peer(getURLParameter('id'), {key: 'INSERKEY'});
+      var peer = new Peer(getURLParameter('id'), {key: PEERJSKEY});
       peer.on('open', function(id) {
         $('#welcome').text("Peer ID: " + id);
       });
