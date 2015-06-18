@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -23,28 +24,36 @@
     <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
     <script src="/js/main.js"></script>
 
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="display">
-      <div class="row">
-        <div id="cam" class="modulebox col-xs-3">
-        <boxtitle><p>Input</p></boxtitle>
-        <span></span>
+        <div class="row">
+            <div id="cam" class="modulebox col-xs-3">
+                <boxtitle>
+                    <p>Input</p>
+                </boxtitle>
+                <span></span>
+            </div>
+            <div id="timeofday" class=" modulebox col-xs-4">
+                <boxtitle>
+                    <p>Time of Day</p>
+                </boxtitle>
+                <span></span>
+            </div>
+            <div id="note" class=" modulebox col-xs-5">
+                <boxtitle>
+                    <p>Countdown</p>
+                </boxtitle>
+                <span></span>
+            </div>
         </div>
-        <div id="timeofday" class=" modulebox col-xs-4">
-        <boxtitle><p>Time of Day</p></boxtitle>
-        <span></span>
+        <div class="row">
+            <div id="alerts" class="modulebox col-xs-12">
+
+            </div>
         </div>
-        <div id="note" class=" modulebox col-xs-5">
-        <boxtitle><p>Countdown</p></boxtitle>
-        <span></span>
-        </div>
-      </div>
-      <div class="row">
-          <div id="alerts" class="modulebox col-xs-12">
-              
-          </div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>
