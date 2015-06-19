@@ -6,6 +6,7 @@ var localstream;
 
 // connect to broker for 
 var peer = new Peer(getURLParameter('id'), {key: PEERJSKEY});
+var calls = new Array();
 
 $(document).ready(function() {
     // init microphone
@@ -51,7 +52,7 @@ $(document).ready(function() {
         console.log('connection');
         conn.on('data', function(data){
             audio = document.getElementById(conn.peer + '-player');
-            audio.muted ? audio.muted = false : audio.muted = true;
+            audio.muted = data['mute'];
             console.log(conn.peer, data, audio.muted);
         });
     });
@@ -78,21 +79,36 @@ function getURLParameter(sParam)
         if (sParameterName[0] == sParam) 
         {
             return sParameterName[1];
-        }
-    }
-}
+        };
+    };
+};
 
 // TX REMOTE CONTROL
 function toggleMuteTx() {
     idToMute = $(this).attr('id').substring(0, $(this).attr('id').length - 7);
-    console.log("Muting RX to", idToMute);
+    calls[idToMute]['muted'] ? newStatus = false : newStatus = true;
+    console.log("Telling", idToMute, "to set mute:", newStatus);
+    
     conn = peer.connect(idToMute, reliable = true);
     console.log('Sending toggle to', idToMute, conn);
     conn.on('open', function(){
-        conn.send('Toggle');
+        conn.send({'mute': newStatus});
     });
-    $(this).toggleClass( "btn-danger" );
-    $(this).toggleClass( "btn-success" );
+    if (newStatus) {
+        // now muted
+        if ($(this).hasClass( "btn-success" )) {
+            $(this).toggleClass( "btn-success" );
+            $(this).toggleClass( "btn-danger" );
+        }; 
+        calls[idToMute]['muted'] = true;
+    } else {
+        // now TXing
+        if ($(this).hasClass( "btn-danger" )) {
+            $(this).toggleClass( "btn-success" );
+            $(this).toggleClass( "btn-danger" );
+        }; 
+        calls[idToMute]['muted'] = false;
+    };
 };
 
 // RX LOCAL CONTROL
@@ -120,5 +136,7 @@ function startCall(destination)
         }).appendTo('#playback');
         audio = document.getElementById(destination + '-player');
         audio.src = URL.createObjectURL(remoteStream);
+        calls[call.peer] = new Array()
+        calls[call.peer]['muted'] = true;
     });
-}
+};
