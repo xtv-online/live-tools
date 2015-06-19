@@ -1,8 +1,9 @@
-var socket = io();
-
-io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
+$(function() {
+    var socket = io();
+    
+    socket.on("who are you", function(roles){
+        console.log(roles);
+        socket.emit("i am", "Camera 2");
+    });
+ 
 });
