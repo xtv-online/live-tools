@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
 
 // Set server to listen
 http.listen(3000, function() {
-    console.log('listening on *:3000');
+    console.log('server', 'listening on *:3000');
 });
 
 // Run all modules defined in modules.js
