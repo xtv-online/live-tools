@@ -46,12 +46,13 @@ $(document).ready(function() {
         });        
     });
     
-    // RX CONTROL
+    // RX REMOTE CONTROL
     peer.on('connection', function(conn) {
         console.log('connection');
         conn.on('data', function(data){
-            document.getElementById(conn.peer + '-player').muted ? document.getElementById(conn.peer + '-player').muted = false : document.getElementById(conn.peer + '-player').muted = true;
-            console.log(conn.peer, data, document.getElementById(conn.peer + '-player').muted);
+            audio = document.getElementById(conn.peer + '-player');
+            audio.muted ? audio.muted = false : audio.muted = true;
+            console.log(conn.peer, data, audio.muted);
         });
     });
 
@@ -59,22 +60,10 @@ $(document).ready(function() {
     $( "#startCall" ).click(function() {
         startCall($('#destination').val());
         
-        // TX CONTROL
-        
         // todo: instead of 'toggle', send 'mute' or 'unmute' in case message gets lost in transfer..
-        $('<button class="togglemute btn btn-danger" id="' + $('#destination').val() + '-mute"' + '>' + $('#destination').val() + '</button>').bind("click", toggleMuteClick).appendTo('#txcontrol');
+        $('<button class="togglemutetx btn btn-danger" id="' + $('#destination').val() + '-mutetx"' + '>' + $('#destination').val() + '</button>').bind("click", toggleMuteTx).appendTo('#txcontrol');
+        $('<button class="togglemuterx btn btn-success" id="' + $('#destination').val() + '-muterx"' + '>' + $('#destination').val() + '</button>').bind("click", toggleMuteRx).appendTo('#rxcontrol');
         
-        function toggleMuteClick() {
-            idToMute = $(this).attr('id').substring(0, $(this).attr('id').length - 5);
-            console.log("Muting", this.id);
-            conn = peer.connect(idToMute, reliable = true);
-            console.log('Sending toggle to', idToMute, conn);
-            conn.on('open', function(){
-                conn.send('Toggle');
-            });
-            $(this).toggleClass( "btn-danger" );
-            $(this).toggleClass( "btn-success" );
-        };
     });
 
 });
@@ -92,6 +81,29 @@ function getURLParameter(sParam)
         }
     }
 }
+
+// TX REMOTE CONTROL
+function toggleMuteTx() {
+    idToMute = $(this).attr('id').substring(0, $(this).attr('id').length - 7);
+    console.log("Muting RX to", idToMute);
+    conn = peer.connect(idToMute, reliable = true);
+    console.log('Sending toggle to', idToMute, conn);
+    conn.on('open', function(){
+        conn.send('Toggle');
+    });
+    $(this).toggleClass( "btn-danger" );
+    $(this).toggleClass( "btn-success" );
+};
+
+// RX LOCAL CONTROL
+function toggleMuteRx() {
+    idToMute = $(this).attr('id').substring(0, $(this).attr('id').length - 7);
+    console.log("Muting RX from", idToMute);
+    audio = document.getElementById(idToMute + '-player');
+    audio.muted ? audio.muted = false : audio.muted = true;
+    $(this).toggleClass( "btn-danger" );
+    $(this).toggleClass( "btn-success" );
+};
 
 // TX
 function startCall(destination)
