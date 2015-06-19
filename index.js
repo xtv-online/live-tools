@@ -15,7 +15,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Route for /
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/template.html');
-    console.log('request response');
 });
 
 // Set server to listen
