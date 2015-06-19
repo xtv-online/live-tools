@@ -12,7 +12,7 @@ function getURLParameter(sParam) {
 $(function() {
     window.scrollTo(0, 1);
     var inId = parseInt(getURLParameter('in'));
-    $('#cam span').text(inId);
+    $('#tally span').text(inId);
 
     var socket = io();
 
