@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Route for /
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/public/template.html');
+    res.sendFile(__dirname + '/public/handshake.html');
 });
 
 // Set server to listen
