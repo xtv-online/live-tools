@@ -1,27 +1,28 @@
 {
-    "name": "live-tools",
-    "version": "0.0.1",
-    "description": "A node.js based system providing various functionality during live broadcasts.",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/xtv-online/live-tools.git"
-    },
-    "author": "Sam Hutchings, Nik Rahmel",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/xtv-online/live-tools/issues"
-    },
-    "homepage": "https://github.com/xtv-online/live-tools#readme",
-    "dependencies": {
-        "atem": "^0.1.4",
-        "clockmaker": "^2.0.0",
-        "express": "^4.12.4",
-        "morgan": "^1.6.0",
-        "osc-min": "^0.2.0",
-        "socket.io": "^1.3.5"
-    }
+  "name": "live-tools",
+  "version": "0.0.1",
+  "description": "A node.js based system providing various functionality during live broadcasts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xtv-online/live-tools.git"
+  },
+  "author": "Sam Hutchings, Nik Rahmel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xtv-online/live-tools/issues"
+  },
+  "homepage": "https://github.com/xtv-online/live-tools#readme",
+  "dependencies": {
+    "atem": "^0.1.4",
+    "clockmaker": "^2.0.0",
+    "express": "^4.12.4",
+    "morgan": "^1.6.0",
+    "nedb": "^1.1.2",
+    "osc-min": "^0.2.0",
+    "socket.io": "^1.3.5"
+  }
 }
