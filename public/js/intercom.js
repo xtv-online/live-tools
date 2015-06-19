@@ -61,7 +61,7 @@ $(document).ready(function() {
     $( "#startCall" ).click(function() {
         startCall($('#destination').val());
         
-        // todo: instead of 'toggle', send 'mute' or 'unmute' in case message gets lost in transfer..
+        // todo: confirm receive of mute signal and current status
         $('<button class="togglemutetx btn btn-danger" id="' + $('#destination').val() + '-mutetx"' + '>' + $('#destination').val() + '</button>').bind("click", toggleMuteTx).appendTo('#txcontrol');
         $('<button class="togglemuterx btn btn-success" id="' + $('#destination').val() + '-muterx"' + '>' + $('#destination').val() + '</button>').bind("click", toggleMuteRx).appendTo('#rxcontrol');
         
