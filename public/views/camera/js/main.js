@@ -16,10 +16,6 @@ $(function() {
 
     var socket = io();
 
-    socket.on('disconnect', function() {
-        console.log('user disconnected');
-    });
-
     socket.on('camera tally', function(inputNumber, state) {
         if (state.program) {
             if (isNaN(inId)) {

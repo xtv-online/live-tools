@@ -6,9 +6,11 @@ $(function() {
             $('<option value=' + role._id + '>' + role.roleName + '</select>').appendTo('#roles');
         });
 
-        if ($.cookie('live-tools-identity') !== undefined) {
-            socket.emit('i am', $.cookie('live-tools-identity'));
+        var idCode = localStorage.getItem('identity');
+        if ( idCode !== null ){
+            socket.emit('i am', idCode);
         }
+
     });
 
     $( '.confirmRole' ).click(function() {
@@ -17,11 +19,11 @@ $(function() {
 
     $( '.storeInCookie' ).click(function() {
         var identityID = $( '#roles option:selected' ).val();
-        $.cookie('live-tools-identity', identityID);
+        localStorage.setItem('identity', identityID);
     });
 
     $( '.deleteCookie' ).click(function() {
-        $.removeCookie('live-tools-identity');
+        localStorage.removeItem('identity');
     });
 
     socket.on('client connected', function(client) {
@@ -43,7 +45,7 @@ $(function() {
         $('span#identity').text(clientDescription.role[0].roleName);
 
         var roleCategory = clientDescription.role[0].roleCategory;
-        window.location.replace('views/' + roleCategory + '/index.html');
+        window.location.replace('/views/' + roleCategory + '/index.html');
 
     });
 
