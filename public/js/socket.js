@@ -41,6 +41,10 @@ $(function() {
     socket.on('you are', function (clientDescription) {
         console.log('You are:', clientDescription);
         $('span#identity').text(clientDescription.role[0].roleName);
+
+        var roleCategory = clientDescription.role[0].roleCategory;
+        window.location.replace('views/' + roleCategory + '/index.html');
+
     });
 
 });
