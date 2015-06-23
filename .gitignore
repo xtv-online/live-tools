@@ -33,6 +33,7 @@ node_modules
 npm-debug.log
 
 # nedb connectedclients database
+<<<<<<< HEAD
  lib/database/connected-clients.db
 
  # OS generated files #
@@ -59,3 +60,6 @@ Thumbs.db
 *.rar
 *.tar
 *.zip
+=======
+lib/database/connected-clients.db
+>>>>>>> 0552edc2209e8a141a028ea7801406519a931263
