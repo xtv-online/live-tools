@@ -2,9 +2,11 @@
 var express = require('express');
 var logger = require('morgan');
 var path = require('path');
+var colour = require('colour');
 
 var app = express();
 var http = require('http').Server(app);
+var PORT = 3000;
 
 // Log all requests in server output
 app.use(logger('dev'));
@@ -18,8 +20,8 @@ app.get('/', function(req, res) {
 });
 
 // Set server to listen
-http.listen(3000, function() {
-    console.log('server', 'listening on *:3000');
+http.listen(PORT, function() {
+    console.log('HTTP Server Listener Started:'.bold, PORT);
 });
 
 // Run all modules defined in modules.js

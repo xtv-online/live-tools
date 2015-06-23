@@ -1,4 +1,24 @@
-{"socketID":"0TsNVTYex1tttjwBAAAA","role":[{"roleName":"Camera 1","shortName":"CAM 1","roleCategory":"camera","location":"Studio","inputNumber":1,"hasTalkBack":true,"_id":"dmlkQyQCMw8eA3mp"}],"_id":"IlB9CUhLodEMbJTa"}
-{"$$deleted":true,"_id":"IlB9CUhLodEMbJTa"}
-{"socketID":"0TsNVTYex1tttjwBAAAA","role":[{"roleName":"Camera 5","shortName":"CAM 5","roleCategory":"camera","location":"OB","inputNumber":5,"hasTalkBack":true,"_id":"LFV6XiK2Od4YOhgt"}],"_id":"NhtPdVslhpozESPo"}
-{"$$deleted":true,"_id":"NhtPdVslhpozESPo"}
+{"socketID":"iPTGXbaUEzL5o2pIAAAB","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"Hs3Tv2PDrNcWRuGw"}
+{"$$deleted":true,"_id":"Hs3Tv2PDrNcWRuGw"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"rFO6RNlVl8lO43y5"}
+{"$$deleted":true,"_id":"rFO6RNlVl8lO43y5"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"neWluNyPBP8ASPf5"}
+{"$$deleted":true,"_id":"neWluNyPBP8ASPf5"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"xZI9IXQfoANzjK8s"}
+{"$$deleted":true,"_id":"xZI9IXQfoANzjK8s"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"Z7Ay5j7uWSZmZ18B"}
+{"$$deleted":true,"_id":"Z7Ay5j7uWSZmZ18B"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"uiCBrMHLZ7QFrL3N"}
+{"$$deleted":true,"_id":"uiCBrMHLZ7QFrL3N"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"8BolPju2lOHCpUnN"}
+{"$$deleted":true,"_id":"8BolPju2lOHCpUnN"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"FQB0HCBqhPpS3bMX"}
+{"$$deleted":true,"_id":"FQB0HCBqhPpS3bMX"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"h8zVKcg2khPf7In4"}
+{"$$deleted":true,"_id":"h8zVKcg2khPf7In4"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"oFFXTaxYMxbgwEV5"}
+{"$$deleted":true,"_id":"oFFXTaxYMxbgwEV5"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"","inputNumber":0,"hasTalkBack":true,"_id":"pytgeCKOoWwaItM1"}],"_id":"fov88umGWuYCPlhZ"}
+{"$$deleted":true,"_id":"fov88umGWuYCPlhZ"}
+{"socketID":"95V9KTZnMjnpsVweAAAA","role":[{"roleName":"Presenter 1","shortName":"PRES1","roleCategory":"presenter","location":"Studio","inputNumber":0,"hasTalkBack":false,"_id":"fcqrMcRXgZgZZjSd"}],"_id":"PtLX5lOugL3YMosk"}
+{"socketID":"Is9HsV1ccw_wATSFAAAC","role":[{"roleName":"Multiview","shortName":"MULTI","roleCategory":"multiview","location":"","inputNumber":0,"hasTalkBack":false,"_id":"cTqKhP7UmVhMw4OI"}],"_id":"V4K6lZRIoRPJjy0M"}
