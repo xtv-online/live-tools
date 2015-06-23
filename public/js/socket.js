@@ -8,6 +8,7 @@ $(function() {
 
         var idCode = localStorage.getItem('identity');
         if ( idCode !== null ){
+            console.log('idCode');
             socket.emit('i am', idCode);
         }
 

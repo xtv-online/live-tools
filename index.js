@@ -12,6 +12,13 @@ var PORT = 3000;
 // Log all requests in server output
 app.use(logger('dev'));
 
+app.use(function (req, res, next) {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Expires', '-1');
+    res.header('Pragma', 'no-cache');
+    next();
+});
+
 // Static route for static requests
 app.use(express.static(path.join(__dirname, 'public')));
 
