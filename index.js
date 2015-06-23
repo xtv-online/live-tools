@@ -3,6 +3,7 @@ var express = require('express');
 var logger = require('morgan');
 var path = require('path');
 var colour = require('colour');
+var fs = require('fs');
 
 var app = express();
 var http = require('http').Server(app);
@@ -26,3 +27,11 @@ http.listen(PORT, function() {
 
 // Run all modules defined in modules.js
 var modules = require('./modules')(http);
+
+process.on('SIGINT', function() {
+    fs.unlink(__dirname + '/lib/database/connected-clients.db', function(err) {
+        if (err) throw err;
+        console.log('Deleted'.red.bold, __dirname + '/lib/database/connected-clients.db');
+        process.exit();
+    });
+});
