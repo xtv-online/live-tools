@@ -22,6 +22,9 @@ app.use(function (req, res, next) {
 // Static route for static requests
 app.use(express.static(path.join(__dirname, 'public')));
 
+var configurationAPIRouter = require('./lib/configuration-api-router');
+app.use('/config', configurationAPIRouter);
+
 // Route for /
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/handshake.html');
