@@ -280,10 +280,9 @@
 .center{
 	position: relative;
 	text-align: center;
-    width: 50%;
-	top: 15%;
+	top: 25%;
 	margin: 0 auto;
-	font-size: 60pt;
+	font-size: 70pt;
 	color: #EF4136;
 	font-weight: bold;
 }
