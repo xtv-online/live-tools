@@ -1,9 +1,10 @@
 @font-face {
-	font-family: 'DSDIGI';
-	src: url('./DSDIGI.eot');
-	src: local('DSDIGI'), url('./DSDIGI.woff') format('woff'), url('./DSDIGI.ttf') format('truetype');
+	font-family: 'Conv_Digital Dismay';
+	src: url('Digital Dismay.eot');
+	src: local('☺'), url('Digital Dismay.woff') format('woff'), url('Digital Dismay.ttf') format('truetype'), url('Digital Dismay.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
-
 
 #display {
     height: 100vh;
@@ -28,7 +29,7 @@
 }
 
 .digital {
-    font-family: 'DSDIGI';
+    font-family: 'Conv_Digital Dismay';
 	font-size: 140%;
 	line-height: 100%
 }
