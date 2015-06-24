@@ -1,4 +1,6 @@
 $(function() {
+    var socket = io();
+
     $.get("api/", function(data, status) {
         data.forEach(function(config) {
             addForm(config);
@@ -38,7 +40,10 @@ $(function() {
         });
 
         $.post('api/' + configName, JSON.stringify(updateObject), function () {
-            location.reload();
+            socket.emit('restart', configName);
+            socket.on('restarting', function () {
+                location.reload();
+            });
         });
 
     }
