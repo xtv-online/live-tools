@@ -28,7 +28,11 @@ app.use('/config/api', configurationAPIRouter);
 
 // Route for Client Info API
 var clientAPIRouter = require('./lib/client-api-router');
-app.use('/client/api', clientAPIRouter);
+app.use('/role/api', clientAPIRouter);
+
+// Route for Role API
+var rolesAPIRouter = require('./lib/roles-api-router');
+app.use('/roles/api', rolesAPIRouter);
 
 // Route for /
 app.get('/', function(req, res) {
