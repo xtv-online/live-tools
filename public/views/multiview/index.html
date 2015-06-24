@@ -26,7 +26,7 @@
 
     <!-- Local Scripts -->
     <script src="js/main.js"></script>
-    <script src="js/jquery.textfill.min.js"></script>
+    <script src="/js/jquery.textfill.min.js"></script>
 
     <!-- Local CSS -->
     <link rel="stylesheet" href="/css/xtv.css">
@@ -129,13 +129,13 @@ Time since RX: #timeRX
                         <div class="boxtitle">
                             <span>Time since RX</span>
                         </div>
-                        <time id="timeRX"> 88:88:88</time>
+                        <span class="digital" id="timeRX"> 88:88:88</span>
                     </div>
                     <div class="modulebox col-xs-6">
                         <div id="countdownTitle" class="boxtitle">
                             <span>Countdown</span>
                         </div>
-                        <time id="countdown">88:88:88</time>
+                        <span class="digital" id="countdown">88:88:88</span>
                     </div>
                 </div>
 
@@ -149,7 +149,7 @@ Time since RX: #timeRX
                 </div>
             </div>
         </div>
-        
+
         <div class="row" id="row2"> <!-- stuff below clock -->
             <div class="col-xs-5 modulebox" >
                 <div id="livestatus" style="background:#EF4136;">

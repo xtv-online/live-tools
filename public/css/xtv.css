@@ -27,8 +27,10 @@
     text-align: center;
 }
 
-time {
-    font-family: 'DSDIGI'
+.digital {
+    font-family: 'DSDIGI';
+	font-size: 140%;
+	line-height: 100%
 }
 
 .boxtitle {

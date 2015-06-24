@@ -5,7 +5,6 @@ $(function() {
 
 
     $('.segment').textfill({});
-    $('#livestatus').textfill({});
 });
 
 
