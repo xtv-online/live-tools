@@ -27,6 +27,7 @@
     <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
 
     <!-- Local JS -->
+    <script src="js/main.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/jquery.textfill.min.js"></script>
 </head>
@@ -34,6 +35,8 @@
 <body>
     <!-- Log Out Button -->
     <button class="btn btn-default" style="position:absolute; z-index:10; bottom:12px; left:12px;" onclick="localStorage.removeItem('identity'); document.location.href='/';"><span class="glyphicon glyphicon-log-out"></span></button>
+    <!-- Players for Intercom -->
+    <div id="playback"></div>
     <!-- View -->
     <div id="display">
 
@@ -97,7 +100,8 @@
                 <div class="boxtitle">
                     <p>TX Control</p>
                 </div>
-                <div id="txControl" class="btn-group"></div>
+                <div id="tallyIndicator"></div>
+                <div id="txControl" class="btn-group btn-left"></div>
             </div>
 
         </div>
@@ -117,7 +121,7 @@
                 <div class="boxtitle">
                     <p>RX Control</p>
                 </div>
-                <div id="rxControl" class="btn-group"></div>
+                <div id="rxControl" class="btn-group btn-left"></div>
             </div>
         </div>
         <!-- End Row 3-->
