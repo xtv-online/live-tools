@@ -1,3 +1,15 @@
+/* NEED:
+  * function to send data to director
+  * event to parse incoming data from director/tally/Caspar
+  * get role of this client
+
+  TO-DO:
+  * function setTally()
+  * function muteTx()
+  * function forceRX() to force director to listen to this client
+*/
+
+// OLD CODE FROM PoC:
 $(function() {
     $('#livestatus').textfill({});
 

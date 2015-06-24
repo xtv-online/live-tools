@@ -4,3 +4,31 @@ textarea {
     width: 100%;
     margin: 0;
 }
+
+.tallypoint{
+	width:20px;
+    margin-left: 25px;
+    margin-right: 25px;
+	height:20px;
+	border-radius:50%;
+	background:gray;
+    float:left;
+}
+#tallyIndicator {
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.rxButton {
+    width: 70px;
+    height: 70px;
+}
+
+.btn-left {
+    float: left;
+}
+
+.txButton{
+    width: 70px;
+    height: 70px;
+}
