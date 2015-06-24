@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')));
 
 var configurationAPIRouter = require('./lib/configuration-api-router');
-app.use('/config', configurationAPIRouter);
+app.use('/config/api', configurationAPIRouter);
 
 // Route for /
 app.get('/', function(req, res) {
