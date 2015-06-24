@@ -7,15 +7,17 @@ $(function() {
         });
 
         var idCode = localStorage.getItem('identity');
+        var webRTC = true;
         if ( idCode !== null ){
-            console.log('idCode');
-            socket.emit('i am', idCode);
+            socket.emit('i am', { 'roleID' : idCode, 'isWebRtcCapable' : webRTC } );
         }
 
     });
 
     $( '.confirmRole' ).click(function() {
-        socket.emit('i am', $( '#roles option:selected' ).val());
+        var idCode = $( '#roles option:selected' ).val();
+        var webRTC = true;
+        socket.emit('i am', { 'roleID' : idCode, 'isWebRtcCapable' : webRTC } );
     });
 
     $( '.storeInCookie' ).click(function() {
