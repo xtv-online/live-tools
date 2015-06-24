@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
     <title>Multiview</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/clock.css">
     <!-- JQuery from Google-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -25,14 +26,128 @@
     <!-- Socket.io -->
     <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
 
+    <!-- Local Script -->
+    <script src="js/main.js"></script>
+    <script src="js/jquery.textfill.min.js"></script>
+
+
 </head>
 
 <body>
     <!-- Log Out Button in bottom left corner-->
     <button class="btn btn-default" style="position:absolute; z-index:10; bottom:12px; left:12px;" onclick="localStorage.removeItem('identity'); document.location.href='/';"><span class="glyphicon glyphicon-log-out"></span></button>
     <!-- Mutliview container is 480x270 as dictated by preview box in Atem HD Multiview-->
-    <div class="container">
-        <row>
+    <div id="display">
+        <div class="row" id="row1">
+            <div class="wrapper col-xs-5">
+        		<div class="clock">
+        			<div class="points">
+                        <div class='point p1'></div>
+                        <div class='point p2'></div>
+                        <div class='point p3'></div>
+                        <div class='point p4'></div>
+                        <div class='point p5'></div>
+                        <div class='point p6'></div>
+                        <div class='point p7'></div>
+                        <div class='point p8'></div>
+                        <div class='point p9'></div>
+                        <div class='point p10'></div>
+                        <div class='point p11'></div>
+                        <div class='point p12'></div>
+                        <div class='point p13'></div>
+                        <div class='point p14'></div>
+                        <div class='point p15'></div>
+                        <div class='point p16'></div>
+                        <div class='point p17'></div>
+                        <div class='point p18'></div>
+                        <div class='point p19'></div>
+                        <div class='point p20'></div>
+                        <div class='point p21'></div>
+                        <div class='point p22'></div>
+                        <div class='point p23'></div>
+                        <div class='point p24'></div>
+                        <div class='point p25'></div>
+                        <div class='point p26'></div>
+                        <div class='point p27'></div>
+                        <div class='point p28'></div>
+                        <div class='point p29'></div>
+                        <div class='point p30'></div>
+                        <div class='point p31'></div>
+                        <div class='point p32'></div>
+                        <div class='point p33'></div>
+                        <div class='point p34'></div>
+                        <div class='point p35'></div>
+                        <div class='point p36'></div>
+                        <div class='point p37'></div>
+                        <div class='point p38'></div>
+                        <div class='point p39'></div>
+                        <div class='point p40'></div>
+                        <div class='point p41'></div>
+                        <div class='point p42'></div>
+                        <div class='point p43'></div>
+                        <div class='point p44'></div>
+                        <div class='point p45'></div>
+                        <div class='point p46'></div>
+                        <div class='point p47'></div>
+                        <div class='point p48'></div>
+                        <div class='point p49'></div>
+                        <div class='point p50'></div>
+                        <div class='point p51'></div>
+                        <div class='point p52'></div>
+                        <div class='point p53'></div>
+                        <div class='point p54'></div>
+                        <div class='point p55'></div>
+                        <div class='point p56'></div>
+                        <div class='point p57'></div>
+                        <div class='point p58'></div>
+                        <div class='point p59'></div>
+                        <div class='point p0'></div>
+        			</div>
+        			<div class="center" id="hm"></div>
+        			<div class="center" id="s"></div>
+        		</div>
+        	</div>
+            <div class="col-xs-7">
+                <div class="row" id="row1a">
+                    <div class="modulebox col-xs-6">
+                        <div class="boxtitle">
+                            <p>Time since RX</p>
+                        </div>
+                        <time>88:88:88</time>
+                    </div>
+                    <div class="modulebox col-xs-6">
+                        <div class="boxtitle">
+                            <p>Countdown</p>
+                        </div>
+                        <time>88:88:88</time>
+                    </div>
+
+                </div>
+                <div class="row modulebox" id="row1a">
+                    <div class="boxtitle">
+                        <p>Current Segment</p>
+                    </div>
+                    <div class="segment">
+                        <span>60 | Weather Intro Studio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="row2">
+            <div class="col-xs-5 modulebox" >
+                <div id="livestatus" style="background:#EF4136;">
+                ON AIR
+                </div>
+            </div>
+            <div class="col-xs-7 modulebox">
+                <div class="boxtitle">
+                    <p>Next Segment</p>
+                </div>
+                <div class="segment">
+                    <span>70 | Weather Live (Adam)</span>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

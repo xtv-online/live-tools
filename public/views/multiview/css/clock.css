@@ -4,9 +4,6 @@
 	src: local('DSDIGI'), url('./DSDIGI.woff') format('woff'), url('./DSDIGI.ttf') format('truetype');
 }
 
-body {
-}
-
 /* Font downloaded from FontsForWeb.com */
 
 .clock{
@@ -283,10 +280,10 @@ body {
 	width:330px;
 	height:330px;
 	position:absolute;
-}
-.clock{
-	margin:15px;
-	background:#050505;
+    margin-top: 10px;
+	margin-bottom: -10px;
+    margin-left:10px;
+    margin-right:-10px;
 }
 .center{
 	font-family: 'DSDIGI' !important;
@@ -296,6 +293,6 @@ body {
 	top: 15%;
 	margin: 0 auto;
 	font-size: 60pt;
-	color: red;
+	color: #EF4136;
 	font-weight: bold;
 }
