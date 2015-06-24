@@ -1,3 +1,10 @@
+@font-face {
+	font-family: 'DSDIGI';
+	src: url('./DSDIGI.eot');
+	src: local('DSDIGI'), url('./DSDIGI.woff') format('woff'), url('./DSDIGI.ttf') format('truetype');
+}
+
+
 #display {
     height: 100vh;
     width: 100vw;
@@ -20,10 +27,15 @@
     text-align: center;
 }
 
+time {
+    font-family: 'DSDIGI'
+}
 
-boxtitle {
-    font-size: 12pt;
+.boxtitle {
+    font-size: 16pt;
     text-align: center;
+    font-family: monospace;
+    line-height: 16pt;
 }
 
 #cam {
