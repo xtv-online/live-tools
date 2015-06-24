@@ -1,11 +1,3 @@
-@font-face {
-	font-family: 'DSDIGI';
-	src: url('./DSDIGI.eot');
-	src: local('DSDIGI'), url('./DSDIGI.woff') format('woff'), url('./DSDIGI.ttf') format('truetype');
-}
-
-/* Font downloaded from FontsForWeb.com */
-
 .clock{
 	position:absolute;
 	width:300px;
