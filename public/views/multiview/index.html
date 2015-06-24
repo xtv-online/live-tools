@@ -30,8 +30,17 @@
     <script src="js/main.js"></script>
     <script src="js/jquery.textfill.min.js"></script>
 
-
 </head>
+<!--
+===== DYNAMIC ELEMENTS =====
+Clock: updateClock(date) where date is a Date object
+Next Segment: <span> in #nextSegment
+Current Segment: <span> in #currentSegment
+Live Status: <span> in #livestatus
+Countdown Title: <span> in #countdownTitle
+Countdown: #countdown
+Time since RX: #timeRX
+-->
 
 <body>
     <!-- Log Out Button in bottom left corner-->
@@ -113,13 +122,13 @@
                         <div class="boxtitle">
                             <p>Time since RX</p>
                         </div>
-                        <time>88:88:88</time>
+                        <time id="timeRX"> 88:88:88</time>
                     </div>
                     <div class="modulebox col-xs-6">
-                        <div class="boxtitle">
-                            <p>Countdown</p>
+                        <div id="countdownTitle" class="boxtitle">
+                            <span>Countdown</span>
                         </div>
-                        <time>88:88:88</time>
+                        <time id="countdown">88:88:88</time>
                     </div>
 
                 </div>
@@ -127,7 +136,7 @@
                     <div class="boxtitle">
                         <p>Current Segment</p>
                     </div>
-                    <div class="segment">
+                    <div id="currentSegment" class="segment">
                         <span>60 | Weather Intro Studio</span>
                     </div>
                 </div>
@@ -136,14 +145,14 @@
         <div class="row" id="row2">
             <div class="col-xs-5 modulebox" >
                 <div id="livestatus" style="background:#EF4136;">
-                ON AIR
+                    <span>ON AIR</span>
                 </div>
             </div>
             <div class="col-xs-7 modulebox">
                 <div class="boxtitle">
                     <p>Next Segment</p>
                 </div>
-                <div class="segment">
+                <div id="nextSegment" class="segment">
                     <span>70 | Weather Live (Adam)</span>
                 </div>
             </div>
