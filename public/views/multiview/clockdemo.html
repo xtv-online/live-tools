@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <title>Multiview</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/clock.css">
+    <!-- JQuery from Google-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Socket.io -->
+    <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+
+    <script>
+    $(function() {
+        var date = new Date(); updateClock(date);
+        // update text clock
+        var update = setInterval(function(){ date = new Date(); updateClock(date); }, 1000);
+
+    });
+
+    function updateClock(date) {
+        hours = date.getHours();
+        minutes = date.getMinutes();
+        seconds = date.getSeconds();
+
+        // update text
+        $( "#hm" ).text( hours + ":" + minutes );
+        $( "#s" ).text( ((seconds < 10) ? "0" + seconds : seconds));
+
+        // light up seconds
+        for (i = 0; i < (seconds + 1); i++) {
+            $( ".p" + i ).css( "background", "red" );
+        }
+        // clear remaining seconds
+        for (i = (seconds + 1); i < 60; i++) {
+            $( ".p" + i ).css( "background", "gray" );
+        }
+    }
+    </script>
+
+</head>
+<body>
+    <div class="wrapper">
+		<div class="clock">
+			<div class="points">
+                <div class='point p1'></div>
+                <div class='point p2'></div>
+                <div class='point p3'></div>
+                <div class='point p4'></div>
+                <div class='point p5'></div>
+                <div class='point p6'></div>
+                <div class='point p7'></div>
+                <div class='point p8'></div>
+                <div class='point p9'></div>
+                <div class='point p10'></div>
+                <div class='point p11'></div>
+                <div class='point p12'></div>
+                <div class='point p13'></div>
+                <div class='point p14'></div>
+                <div class='point p15'></div>
+                <div class='point p16'></div>
+                <div class='point p17'></div>
+                <div class='point p18'></div>
+                <div class='point p19'></div>
+                <div class='point p20'></div>
+                <div class='point p21'></div>
+                <div class='point p22'></div>
+                <div class='point p23'></div>
+                <div class='point p24'></div>
+                <div class='point p25'></div>
+                <div class='point p26'></div>
+                <div class='point p27'></div>
+                <div class='point p28'></div>
+                <div class='point p29'></div>
+                <div class='point p30'></div>
+                <div class='point p31'></div>
+                <div class='point p32'></div>
+                <div class='point p33'></div>
+                <div class='point p34'></div>
+                <div class='point p35'></div>
+                <div class='point p36'></div>
+                <div class='point p37'></div>
+                <div class='point p38'></div>
+                <div class='point p39'></div>
+                <div class='point p40'></div>
+                <div class='point p41'></div>
+                <div class='point p42'></div>
+                <div class='point p43'></div>
+                <div class='point p44'></div>
+                <div class='point p45'></div>
+                <div class='point p46'></div>
+                <div class='point p47'></div>
+                <div class='point p48'></div>
+                <div class='point p49'></div>
+                <div class='point p50'></div>
+                <div class='point p51'></div>
+                <div class='point p52'></div>
+                <div class='point p53'></div>
+                <div class='point p54'></div>
+                <div class='point p55'></div>
+                <div class='point p56'></div>
+                <div class='point p57'></div>
+                <div class='point p58'></div>
+                <div class='point p59'></div>
+                <div class='point p0'></div>
+			</div>
+			<div class="center" id="hm"></div>
+			<div class="center" id="s"></div>
+		</div>
+	</div>
+</body>
+</html>
