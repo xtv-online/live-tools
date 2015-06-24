@@ -2,6 +2,14 @@ var localstream;
 var clients = new Object();
 var peer;
 
+/* NEED:
+  * unique ID of this (director) client
+  * unique ID of all clients per role
+    (i.e. CAM1: 0328, 0523; CAM2: 0542)
+  * function to broadcast data to all clients of certain role
+  * event for incoming data from any role.
+*/
+
 // connect to broker for peer ID
 function connectToBroker(id){
     peer = new Peer(id, {key: PEERJSKEY});
@@ -63,10 +71,9 @@ function startCall(destination)
 };
 
 function callAllClients(){
-    console.log("Let's do this", clients);
     var i;
     for (key in clients){
-        for	(i = 0; i < clients[key].length; i++) {
+        for    (i = 0; i < clients[key].length; i++) {
             startCall(clients[key][i]);
         };
     };
