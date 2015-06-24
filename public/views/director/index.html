@@ -40,28 +40,96 @@
         <!-- Row 1-->
         <div id="row1" class="row">
             <!-- Time of Day -->
-            <!-- Time since TX -->
-            <!-- Countdown Settings -->
+            <div class="modulebox col-xs-4">
+                <div class="boxtitle">
+                    <span>Time of Day</span>
+                </div>
+                <div id="timeofday" class="segment">
+                    <span class="digital">88:88:88</span>
+                </div>
+            </div>
+            <!-- Time since TX: col-4 -->
+            <div class="modulebox col-xs-4">
+                <div class="boxtitle">
+                    <span>Time since RX</span>
+                </div>
+                <div id="timeRx" class="segment">
+                    <span class="digital">88:88:88</span>
+                </div>
+                <button id="resetTimeRx" class="btn btn-success">Reset</button>
+            </div>
+            <!-- Countdown Settings: col-4 -->
+            <div class="modulebox col-xs-4">
+                <div class="boxtitle">
+                    <span>Countdown</span>
+                </div>
+                <div id="countdown" class="segment">
+                    <span class="digital">88:88:88</span>
+                </div>
+                <div class="btn-group">
+                    <button id="setVT" class="btn btn-default">Set VT</button>
+                    <button id="setSegment" class="btn btn-default">Set Segment</button>
+                </div>
+                <div class="btn-group">
+                    <button id="add1m" class="btn btn-default">+1 Min</button>
+                    <button id="add10s" class="btn btn-default">+10 Sec</button>
+                    <button id="reset" class="btn btn-default">Reset</button>
+                </div>
+            </div>
         </div>
         <!-- End Row 1-->
 
         <!-- Row 2-->
         <div id="row2" class="row">
-            <!-- TALLY -->
-            <!-- Intercom TX Control -->
+            <!-- On Air Status -->
+            <div class="col-xs-4 modulebox" >
+                <div class="boxtitle">
+                    <p>Status</p>
+                </div>
+                <div id="livestatus" style="background:#EF4136;">
+                    <span>ON AIR</span>
+                </div>
+                <button id="changeOnAir" class="btn btn-success">Change</button>
+            </div>
+
+            <!-- Intercom TX Control: col-8 (to be filled dynamically, incl. Tally) -->
+            <div class="col-xs-8 modulebox" >
+                <div class="boxtitle">
+                    <p>TX Control</p>
+                </div>
+                <div id="txControl" class="btn-group"></div>
+            </div>
+
         </div>
         <!-- End Row 2-->
 
         <!-- Row 3-->
         <div id="row3" class="row">
-            <!-- Broadcast MSG -->
-            <!-- Intercom RX Control -->
+            <div class="col-xs-4 modulebox" >
+                <div class="boxtitle">
+                    <p>Broadcast Message</p>
+                </div>
+                <textarea id="broadcastMsg" rows="3"></textarea>
+                <button id="sendMsg" class="btn btn-success">Send</button>
+            </div>
+            <!-- Intercom RX Control: col-8 (to be filled dynamically)-->
+            <div class="col-xs-8 modulebox" >
+                <div class="boxtitle">
+                    <p>RX Control</p>
+                </div>
+                <div id="rxControl" class="btn-group"></div>
+            </div>
         </div>
         <!-- End Row 3-->
 
         <!-- Row 4-->
         <div id="row4" class="row">
-            <!-- Schedule Control -->
+            <!-- Schedule Control: col-12 -->
+            <div class="col-xs-12 modulebox" >
+                <div class="boxtitle">
+                    <p>Schedule Control</p>
+                </div>
+                </div>
         </div>
         <!-- End Row 4-->
 
