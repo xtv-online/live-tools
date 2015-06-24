@@ -22,8 +22,13 @@ app.use(function (req, res, next) {
 // Static route for static requests
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Route for Config
 var configurationAPIRouter = require('./lib/configuration-api-router');
 app.use('/config/api', configurationAPIRouter);
+
+// Route for Client Info API
+var clientAPIRouter = require('./lib/client-api-router');
+app.use('/client/api', clientAPIRouter);
 
 // Route for /
 app.get('/', function(req, res) {

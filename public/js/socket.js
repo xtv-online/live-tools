@@ -36,7 +36,6 @@ $(function() {
                     audio: true
                 },
                 function(stream) {
-                    localstream = stream;
                 },
                 function(err) {
                     console.log('Failed to get local stream', err);
