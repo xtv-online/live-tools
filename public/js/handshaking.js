@@ -55,7 +55,7 @@ $(function() {
         window.location.replace('/');
     });
 
-    socket.on('reset all', function () {
+    socket.on('reset all', function() {
         location.reload();
     });
 
@@ -72,26 +72,52 @@ $(function() {
     // Utility Functions
 
     function doesBrowserSupportWebRTC() {
-        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+        var today = new Date();
+        var status = localStorage.getItem('web-rtc-status');
 
-        // save stream object pointer
-        try {
-            navigator.getUserMedia({
-                    video: false,
-                    audio: true
-                },
-                function(stream) {
-                },
-                function(err) {
-                    console.log('Failed to get local stream', err);
-                }
-            );
-        } catch (err) {
-            console.log('no rtc');
-            return false;
+        if (status !== null) {
+            status = JSON.parse(status);
+            status.expiration = new Date(status.expiration);
+            if (status.expiration > today) {
+                return status.enabled;
+            }
         }
 
-        return true;
+        var webRTC_status = {
+            'enabled': checkCompatability(),
+            'expiration': addDays(today, 7)
+        };
+
+        localStorage.setItem('web-rtc-status', JSON.stringify(webRTC_status));
+
+        return webRTC_status.enabled;
+
+        function addDays(date, days) {
+            var result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
+
+        function checkCompatability() {
+            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+            try {
+                navigator.getUserMedia({
+                        video: false,
+                        audio: true
+                    },
+                    function(stream) {},
+                    function(err) {
+                        console.log('Failed to get local stream', err);
+                    }
+                );
+            } catch (err) {
+                console.log('no rtc');
+                return false;
+            }
+
+            return true;
+        }
     }
 
 });
