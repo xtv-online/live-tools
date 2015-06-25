@@ -30,7 +30,7 @@ function handshaking_module(readyFunction) {
     });
 
     socket.on('reset all', function () {
-        location.reload();
+        location.replace('/');
     });
 
     // Utility Functions
