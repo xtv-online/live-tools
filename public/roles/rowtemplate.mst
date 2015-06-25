@@ -1,0 +1,51 @@
+<tr>
+    <td>
+        <input class="{{_id}} {{add}}" type="text" name="roleName" maxlength="16" value="{{roleName}}">
+    </td>
+    <td>
+        <input class="{{_id}} {{add}}" type="text" name="shortName" maxlength="4" value="{{shortName}}">
+    </td>
+    <td>
+        <select class="{{_id}} {{add}}" name="roleCategory">
+            <option value="autocue" disabled>Autocue</option>
+            <option value="camera">Camera</option>
+            <option value="director">Director</option>
+            <option value="general">General</option>
+            <option value="multiview">Multiview</option>
+            <option value="presenter">Presenter</option>
+        </select>
+    </td>
+    <td>
+        <input class="{{_id}} {{add}}" type="text" name="location" maxlength="16" value="{{location}}">
+    </td>
+    <td>
+        <select class="{{_id}} {{add}}" name="inputNumber">
+            <option value="0">None</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </td>
+    <td style="padding-top: 15px;">
+        <input class="{{_id}} {{add}}" type="checkbox" name="hasTalkBack" {{#hasTalkBack}}checked{{/hasTalkBack}}>
+    </td>
+    <td>
+        {{#_id}}
+        <div class="btn btn-danger delete {{_id}}">
+            Delete
+        </div>
+        {{/_id}}
+        {{^_id}}
+        <div class="btn btn-primary {{add}}">
+            Add
+        </div>
+        {{/_id}}
+    </td>
+</tr>
