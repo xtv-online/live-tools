@@ -13,6 +13,7 @@
             <option value="general">General</option>
             <option value="multiview">Multiview</option>
             <option value="presenter">Presenter</option>
+            <option value="runner" disabled>Runner</option>
         </select>
     </td>
     <td>
