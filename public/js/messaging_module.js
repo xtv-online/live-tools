@@ -1,31 +1,27 @@
-var messaging_module = function() {
+ function messaging_module_initialise(messageReceivedFunction, acknowledgementFunction) {
+     socket.on('messaging message', function(object) {
+         var messageObject = JSON.parse(object);
+         messageReceivedFunction(messageObject.message, messageObject.source);
+     });
 
-    this.initialise = function(messageReceivedFunction, acknowledgementFunction) {
-        socket.on('messaging message', function(object) {
-            var messageObject = JSON.parse(object);
-            messageReceivedFunction(messageObject.message, messageObject.source);
-        });
+     socket.on('messaging acknowledgement', function(senderName) {
+         acknowledgementFunction(senderName);
+     });
+ }
 
-        socket.on('messaging acknowledgement', function(senderName) {
-            acknowledgementFunction(senderName);
-        });
-    };
+ function messaging_module_broadcastMessage(message) {
+     socket.emit('messaging send message broadcast', message);
+ }
 
-    this.broadcastMessage = function(message) {
-        socket.emit('messaging send message broadcast', message);
-    };
+ function messaging_module_sendMessage(message, roleID) {
+     var messageObject = {
+         'roleID': roleID,
+         'message': message
+     };
 
-    this.sendMessage = function(message, roleID) {
-        var messageObject = {
-            'roleID': roleID,
-            'message': message
-        };
+     socket.emit('messaging send message roleID', JSON.stringify(messageObject));
+ }
 
-        socket.emit('messaging send message roleID', JSON.stringify(messageObject));
-    };
-
-    this.acknowledge = function() {
-        socket.emit('messaging acknowledge');
-    };
-
-};
+ function messaging_module_acknowledge() {
+     socket.emit('messaging acknowledge');
+ }

@@ -32,7 +32,7 @@ $(function() {
         customcountdown_module('#countdown span', '#countdownTitle span');
 
         // Setup Messaging Module
-        messaging_module.initialise(newMessage, newAcknowledgement);
+        messaging_module_initialise(newMessage, newAcknowledgement);
 
     }
 
