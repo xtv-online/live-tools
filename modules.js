@@ -10,7 +10,8 @@ module.exports = function(http) {
     atem.start();
 
     var clock = require('./lib/timeofday')(io);
-
+    var customCountdown = require('./lib/custom-countdown')(io);
+    
     var casparCountdown = require('./lib/caspar-countdown');
     casparCountdown.initialise(io);
     casparCountdown.start();

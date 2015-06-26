@@ -27,6 +27,9 @@ $(function() {
 
         // Setup Caspar Countdown Module
         casparcountdown_module('#countdown span', '#countdownTitle span');
+        
+        // Setup Custom Countdown
+        customcountdown_module('#countdown span', '#countdownTitle span');
 
     }
 
