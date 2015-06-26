@@ -1,3 +1,10 @@
+$(function() {
+    $("#livestatus").click(function() {
+        addButtons('CAM1');
+    });
+});
+
+
 var localstream;
 var clients = new Object();
 var peer;
@@ -11,6 +18,9 @@ var peer;
 */
 
 // connect to broker for peer ID
+
+
+
 function connectToBroker(id){
     peer = new Peer(id, {key: PEERJSKEY});
 
@@ -38,11 +48,13 @@ function addClient(peerId, role) {
 
 function addButtons(role){
     // add Tally
-    $('<div class="tallypoint" id="' + role + '-tally"></div>').appendTo('#tallyIndicator');
+    $('<div class="point" id="' + role + '-tally"></div>').appendTo('#tallyIndicator');
     // add TX button
-    $('<button class="btn btn-success txButton" id="' + role + '-muteTx"' + '>' + role + '</button>').bind("click", muteTx).appendTo('#txControl');
+    $('<button class="btn-circle-lg btn btn-success  txButton" id="' + role + '-muteTx"' + '>' + role + '</button>').bind("click", muteTx).appendTo('#txControl');
     // add RX button
-    $('<button class="btn btn-success rxButton" id="' + role + '-muteRx"' + '>' + role + '</button>').bind("click", muteRx).appendTo('#rxControl');
+    $('<button class="btn-circle-lg btn btn-success rxButton" id="' + role + '-muteRx"' + '>' + role + '</button>').bind("click", muteRx).appendTo('#rxControl');
+    // add Status
+    $('<div class="point" id="' + role + '-statu"></div>').appendTo('#statusIndicator');
 };
 
 function muteTx() {

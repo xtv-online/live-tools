@@ -5,30 +5,32 @@ textarea {
     margin: 0;
 }
 
-.tallypoint{
-	width:20px;
-    margin-left: 25px;
-    margin-right: 25px;
-	height:20px;
+.mainrow {
+    margin-bottom: 12px;
+}
+
+.point{
+	width:21px;
+    margin-left: 34px;
+    margin-right: 34px;
+	height:21px;
 	border-radius:50%;
 	background:gray;
     float:left;
 }
+
 #tallyIndicator {
     width: 100%;
     padding-bottom: 30px;
 }
 
-.rxButton {
-    width: 70px;
-    height: 70px;
+#statusIndicator {
+    width: 100%;
+    padding-top: 100px;
 }
+
 
 .btn-left {
     float: left;
 }
 
-.txButton{
-    width: 70px;
-    height: 70px;
-}

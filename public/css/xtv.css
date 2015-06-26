@@ -38,3 +38,44 @@
     font-family: monospace;
     line-height: 16pt;
 }
+
+.btn-circle {
+  width: 49px !important;
+  height: 49px !important;
+  text-align: center !important;
+  padding: 5px 0 !important;
+  font-size: 20px !important;
+  line-height: 2.00 !important;
+  border-radius: 30px !important;
+}
+
+.btn-circle-micro {
+  width: 19px !important;
+  height: 19px !important;
+  text-align: center !important;
+  padding: 1px 0 !important;
+  font-size: 13px !important;
+  line-height: 0.1 !important;
+  border-radius: 30px !important;
+}
+
+.btn-circle-sm {
+  width: 35px !important;
+  height: 35px !important;
+  text-align: center !important;
+  padding: 2px 0 !important;
+  font-size: 20px !important;
+  line-height: 1.65 !important;
+  border-radius: 30px !important;
+}
+
+.btn-circle-lg {
+  width: 79px !important;
+  height: 79px !important;
+  text-align: center !important;
+  padding: 13px 0 !important;
+  font-size: 20px !important;
+  line-height: 2.00 !important;
+  border-radius: 70px !important;
+  margin: 5px;
+}

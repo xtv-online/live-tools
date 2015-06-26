@@ -16,12 +16,12 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+    
     <!-- JQuery from Google-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <!-- Socket.io -->
     <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
@@ -41,9 +41,9 @@
     <div id="display">
 
         <!-- Row 1-->
-        <div id="row1" class="row">
+        <div id="row1" class="row mainrow">
             <!-- Time of Day -->
-            <div class="modulebox col-xs-4">
+            <div class="modulebox col-xs-3">
                 <div class="boxtitle">
                     <span>Time of Day</span>
                 </div>
@@ -52,23 +52,24 @@
                 </div>
             </div>
             <!-- Time since TX: col-4 -->
-            <div class="modulebox col-xs-4">
+            <div class="modulebox col-xs-3">
                 <div class="boxtitle">
-                    <span>Time since RX</span>
+                    <span>Status</span>
                 </div>
-                <div id="timeRx" class="segment">
-                    <span>88:88:88</span>
+                <div id="livestatus" style="background:#EF4136; margin: 5px; font-size: 50%;">
+                    <span>ON AIR<br /> 88:88:88</span>
                 </div>
-                <button id="resetTimeRx" class="btn btn-success">Reset</button>
             </div>
             <!-- Countdown Settings: col-4 -->
-            <div class="modulebox col-xs-4">
+            <div class="modulebox col-xs-3">
                 <div class="boxtitle">
                     <span>Countdown</span>
                 </div>
                 <div id="countdown" class="segment">
                     <span>88:88:88</span>
                 </div>
+            </div>
+            <div class="modulebox col-xs-3">
                 <div class="btn-group">
                     <button id="setVT" class="btn btn-default">Set VT</button>
                     <button id="setSegment" class="btn btn-default">Set Segment</button>
@@ -83,54 +84,55 @@
         <!-- End Row 1-->
 
         <!-- Row 2-->
-        <div id="row2" class="row">
-            <!-- On Air Status -->
-            <div class="col-xs-4 modulebox" >
-                <div class="boxtitle">
-                    <p>Status</p>
-                </div>
-                <div id="livestatus" style="background:#EF4136;">
-                    <span>ON AIR</span>
-                </div>
-                <button id="changeOnAir" class="btn btn-success">Change</button>
+        <div id="row2" class="row mainrow">
+          <!--
+          <div class="col-xs-3 modulebox" >
+            <div class="boxtitle">
+                <p>Broadcast Message</p>
             </div>
-
-            <!-- Intercom TX Control: col-8 (to be filled dynamically, incl. Tally) -->
-            <div class="col-xs-8 modulebox" >
-                <div class="boxtitle">
-                    <p>TX Control</p>
-                </div>
-                <div id="tallyIndicator"></div>
-                <div id="txControl" class="btn-group btn-left"></div>
-            </div>
-
+            <textarea id="broadcastMsg" rows="3"></textarea>
+            <button id="sendMsg" class="btn btn-success">Send</button>
+          </div>
+          -->
+        
+        <!-- Row 2a-->
+        <div class="col-xs-12" >
+          <div id="row2a" class="row">
+          <!-- Intercom TX Control: col-8 (to be filled dynamically, incl. Tally) -->
+              <div class="col-xs-12 modulebox" >
+                  <!--<div class="boxtitle">
+                      <p>TX Control</p>
+                  </div>-->
+                  <div id="tallyIndicator"></div>
+                  <div id="txControl" class="btn-left"></div>
+              </div>
+          </div>
+        </div>
+        <!-- End Row 2a-->
+        <!-- Row 2-->
+        <div class="col-xs-12" >
+          <div id="row2b" class="row">
+              <!-- Intercom RX Control: col-8 (to be filled dynamically)-->
+              <div class="col-xs-12 modulebox" >
+                  <!--<div class="boxtitle">
+                      <p>RX Control</p>
+                  </div>-->
+                  <div id="rxControl" class="btn-left"></div>
+                  <div id="statusIndicator"></div>
+              </div>
+          </div>
+        </div>
+        <!-- End Row 2b-->
+        
         </div>
         <!-- End Row 2-->
 
-        <!-- Row 3-->
-        <div id="row3" class="row">
-            <div class="col-xs-4 modulebox" >
-                <div class="boxtitle">
-                    <p>Broadcast Message</p>
-                </div>
-                <textarea id="broadcastMsg" rows="3"></textarea>
-                <button id="sendMsg" class="btn btn-success">Send</button>
-            </div>
-            <!-- Intercom RX Control: col-8 (to be filled dynamically)-->
-            <div class="col-xs-8 modulebox" >
-                <div class="boxtitle">
-                    <p>RX Control</p>
-                </div>
-                <div id="rxControl" class="btn-group btn-left"></div>
-            </div>
-        </div>
-        <!-- End Row 3-->
 
-        <!-- Row 4: Schedule Control -->
-        <div id="row4" class="row">
+        <!-- Row 3: Schedule Control -->
+        <div id="row3" class="row">
             <!-- Set As -->
             <div class="col-xs-1 modulebox" >
-                <div class="boxtitle">
+               <div class="boxtitle">
                     <p>Set As</p>
                 </div>
                 <span></span>
@@ -183,7 +185,7 @@
                 <span></span>
             </div>
         </div>
-        <!-- End Row 4-->
+        <!-- End Row 3-->
 
     </div>
 </body>
