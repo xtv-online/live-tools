@@ -27,13 +27,24 @@ $(function() {
 
         // Setup Caspar Countdown Module
         casparcountdown_module('#countdown span', '#countdownTitle span');
-        
+
         // Setup Custom Countdown
         customcountdown_module('#countdown span', '#countdownTitle span');
+
+        // Setup Messaging Module
+        messaging_module().initialise(newMessage, newAcknowledgement);
 
     }
 
     $('#livestatus').textfill({});
+
+    function newMessage(message, sender) {
+        console.log('Message from ' + sender, message);
+    }
+
+    function newAcknowledgement(sender) {
+        console.log('Acknowledgement from ' + sender);
+    }
     //
     // var inId = parseInt(getURLParameter('in'));
     // $('#tally span').text(inId);

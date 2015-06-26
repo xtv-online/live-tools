@@ -11,7 +11,8 @@ module.exports = function(http) {
 
     var clock = require('./lib/timeofday')(io);
     var customCountdown = require('./lib/custom-countdown')(io);
-    
+    var messagingModule = require('./lib/messaging_module')(io);
+
     var casparCountdown = require('./lib/caspar-countdown');
     casparCountdown.initialise(io);
     casparCountdown.start();
