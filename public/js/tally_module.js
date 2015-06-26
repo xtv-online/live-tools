@@ -1,7 +1,7 @@
 function tally_module(inputID, tallyElementSelector) {
     if (tallyElementSelector !== undefined) {
         socket.on('camera tally', function(inputNumber, state) {
-            if (inputNumber === parseInt(inId)) {
+            if (inputNumber === parseInt(inputID)) {
                 if (state.program) {
                     $(tallyElementSelector).css("background", "#EF4136"); // Program
                 } else if (state.preview) {
