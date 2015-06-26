@@ -25,6 +25,10 @@
     <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
 
     <!-- Local Scripts -->
+    <script src="/js/handshaking_module.js"></script>
+    <script src="/js/timeofday_module.js"></script>
+    <script src="/js/casparcountdown_module.js"></script>
+    <script src="/js/customcountdown_module.js"></script>
     <script src="js/main.js"></script>
     <script src="/js/jquery.textfill.min.js"></script>
 
@@ -45,7 +49,7 @@ Countdown: #countdown
 Time since RX: #timeRX
 -->
 
-<body>
+<body style="">
     <!-- Log Out Button in bottom left corner-->
     <button class="btn btn-default" style="position:absolute; z-index:10; bottom:12px; left:12px;" onclick="localStorage.removeItem('identity'); document.location.href='/';"><span class="glyphicon glyphicon-log-out"></span></button>
     <!-- Mutliview container is 480x270 as dictated by preview box in Atem HD Multiview-->
@@ -117,7 +121,7 @@ Time since RX: #timeRX
                             <div class='point p0'></div>
             			</div>
             			<div class="center digital" id="hm"></div>
-            			<div class="center digital" id="s"></div>
+            			<div class="center digital" id="s" style="font-size: 70px;"></div>
             		</div>
             	</div>
 
@@ -135,7 +139,7 @@ Time since RX: #timeRX
                         <div id="countdownTitle" class="boxtitle">
                             <span>Countdown</span>
                         </div>
-                        <span id="countdown">88:88:88</span>
+                        <span id="countdown">00:00.00</span>
                     </div>
                 </div>
 
