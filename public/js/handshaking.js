@@ -7,19 +7,11 @@ $(function() {
     $('.confirmRole').click(function() {
         var idCode = $('#roles option:selected').val();
         var webRTC = doesBrowserSupportWebRTC();
+        localStorage.setItem('identity', idCode);
         socket.emit('i am', {
             'roleID': idCode,
             'isWebRtcCapable': webRTC
         });
-    });
-
-    $('.storeInCookie').click(function() {
-        var identityID = $('#roles option:selected').val();
-        localStorage.setItem('identity', identityID);
-    });
-
-    $('.deleteCookie').click(function() {
-        localStorage.removeItem('identity');
     });
 
     // Socket Event Handlers
