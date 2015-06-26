@@ -1,4 +1,4 @@
-function messaging_module() {
+var messaging_module = function() {
 
     this.initialise = function(messageReceivedFunction, acknowledgementFunction) {
         socket.on('messaging message', function(object) {
@@ -28,4 +28,4 @@ function messaging_module() {
         socket.emit('messaging acknowledge');
     };
 
-}
+};
