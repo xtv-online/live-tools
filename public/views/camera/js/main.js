@@ -25,6 +25,9 @@ $(function() {
         // Set up time of day
         timeofday_module('#timeofday span');
 
+        // Setup Caspar Countdown Module
+        casparcountdown_module('#note span', '#note boxtitle p');
+
     }
 
     $('#livestatus').textfill({});
