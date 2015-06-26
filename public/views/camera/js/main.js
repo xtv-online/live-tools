@@ -26,7 +26,7 @@ $(function() {
         timeofday_module('#timeofday span');
 
         // Setup Caspar Countdown Module
-        casparcountdown_module('#note span', '#note boxtitle p');
+        casparcountdown_module('#countdown span', '#countdownTitle span');
 
     }
 

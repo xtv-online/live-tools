@@ -10,8 +10,8 @@ function casparcountdown_module(timeSelector, pathSelector, countdownFunction) {
             countdownFunction(time);
         }
 
-        var minutes = Math.floor(remainingTime / 60);
-        var seconds = remainingTime - (minutes * 60);
+        var minutes = Math.floor(time / 60);
+        var seconds = time - (minutes * 60);
 
         seconds = seconds.toFixed(2);
 
