@@ -1,7 +1,8 @@
 var identity;
-var socket = io();
+var socket;
 
 function handshaking_module(readyFunction) {
+    socket = io();
 
     // Socket Event Handlers
 
