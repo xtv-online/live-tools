@@ -1,7 +1,67 @@
 $(function() {
-    $("#livestatus").click(function() {
+    // temp for debugging
+    $("#timeofday").click(function() {
         addButtons('CAM1');
     });
+    
+    // toggle o air status
+    
+    var liveMouseDown;
+    $('#livestatus').mousedown(function() {
+      liveMouseDown = setTimeout(function() {
+        switch($('#livestatus').css('background-color')) {
+            case 'rgb(239, 65, 54)':
+                socket.emit('status off air');
+                break;
+            case 'rgb(126, 0, 0)':
+                socket.emit('status on air reset');
+                break;
+        }
+      }, 1200);
+    });
+    $('#livestatus').mouseup(function() {
+      if (liveMouseDown) {
+        clearTimeout(liveMouseDown);
+      }
+    });
+    
+    handshaking_module(ready);
+
+    function ready() {
+
+        // Set Up Tally
+        if (identity.role[0].inputID !== 0) {
+            tally_module(identity.role[0].inputID, '#display');
+            $('#tally span').text(identity.role[0].shortName);
+        }
+
+        // Set up time of day
+        timeofday_module('#timeofday span');
+
+        // Setup Caspar Countdown Module
+        casparcountdown_module('#countdown span', '#countdownTitle span');
+
+        // Setup Custom Countdown
+        customcountdown_module('#countdown span', '#countdownTitle span');
+
+        // Setup Messaging Module
+        messaging_module_initialise(newMessage, newAcknowledgement);
+
+        // Setup RX time display
+        rxtime_module('#livetimer', '#livestatusText', '#livestatus');
+
+    }
+
+    
+    function newAcknowledgement(sender) {
+        console.log('Acknowledgement from ' + sender);
+    }
+    
+    function newMessage(message, sender) {
+        console.log('Message from ' + sender, message);
+    }
+    
+    
 });
 
 

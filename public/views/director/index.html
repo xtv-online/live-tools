@@ -29,6 +29,13 @@
     <!-- Local JS -->
     <script src="js/main.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/handshaking_module.js"></script>
+    <script src="/js/tally_module.js"></script>
+    <script src="/js/timeofday_module.js"></script>
+    <script src="/js/casparcountdown_module.js"></script>
+    <script src="/js/customcountdown_module.js"></script>
+    <script src="/js/messaging_module.js"></script>
+    <script src="/js/rxtime_module.js"></script>
     <script src="/js/jquery.textfill.min.js"></script>
 </head>
 
@@ -56,17 +63,17 @@
                 <div class="boxtitle">
                     <span>Status</span>
                 </div>
-                <div id="livestatus" style="background:#EF4136; margin: 5px; font-size: 50%;">
-                    <span>ON AIR<br /> 88:88:88</span>
+                <div id="livestatus" style="background-color:rgb(126, 0, 0); margin: 5px; font-size: 50%;">
+                    <span id="livestatusText">OFF AIR</span><br /><span id="livetimer">00:00:00</span>
                 </div>
             </div>
             <!-- Countdown Settings: col-4 -->
             <div class="modulebox col-xs-3">
-                <div class="boxtitle">
+                <div id="countdownTitle" class="boxtitle">
                     <span>Countdown</span>
                 </div>
                 <div id="countdown" class="segment">
-                    <span>88:88:88</span>
+                    <span>00:00:00</span>
                 </div>
             </div>
             <div class="modulebox col-xs-3">
