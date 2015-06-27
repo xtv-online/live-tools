@@ -50,11 +50,13 @@ $(function() {
             if ($(toggleSelector).hasClass( 'btn-danger' )) {
                 $(toggleSelector).toggleClass( 'btn-success' )
                 $(toggleSelector).toggleClass( 'btn-danger' )
+                $(toggleSelector).text('Show VT');
             };
         } else {
             if ($(toggleSelector).hasClass( 'btn-success' )) {
                 $(toggleSelector).toggleClass( 'btn-success' )
                 $(toggleSelector).toggleClass( 'btn-danger' )
+                $(toggleSelector).text('Custom');
             };
         };
     });

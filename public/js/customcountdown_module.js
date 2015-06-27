@@ -1,11 +1,13 @@
-function customcountdown_module(timeSelector, titleSelector, countdownFunction, toggleSelector) {
-
+function customcountdown_module(timeSelector, titleSelector, alwaysActive, countdownFunction) {
+    alwaysActive = typeof alwaysActive !== 'undefined' ? alwaysActive : false;
+    
     socket.on('countdown', function(data) {
         if (countdownFunction !== undefined) {
             countdownFunction(time);
         }
         casparcountdownActive = !data.customActive;
-        if (data.customActive) {
+        
+        if (data.customActive && !alwaysActive) {
             $(titleSelector).text("Director's Countdown");
             
             

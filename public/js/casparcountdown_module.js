@@ -1,9 +1,11 @@
 var casparcountdownActive = false;
 
-function casparcountdown_module(timeSelector, pathSelector, countdownFunction) {
+function casparcountdown_module(timeSelector, pathSelector, alwaysActive, countdownFunction) {
+    
+    alwaysActive = typeof alwaysActive !== 'undefined' ? alwaysActive : false;
 
     socket.on('cg countdown path', function(path) {
-        if(casparcountdownActive){
+        if(casparcountdownActive && !alwaysActive){
             $(pathSelector).text(path);
         }
     });
@@ -13,7 +15,7 @@ function casparcountdown_module(timeSelector, pathSelector, countdownFunction) {
         if (countdownFunction !== undefined) {
             countdownFunction(time);
         }
-        if(casparcountdownActive){
+        if(casparcountdownActive  && !alwaysActive){
             var minutes = Math.floor(time / 60);
             var seconds = time - (minutes * 60);
 
@@ -28,5 +30,9 @@ function casparcountdown_module(timeSelector, pathSelector, countdownFunction) {
     
     socket.on('custom active', function(customActive) {
         casparcountdownActive = !customActive;
+        if (!customActive){
+            $(pathSelector).text("Waiting for VT..");
+            $(timeSelector).text("00:00.00");
+        }
     });
 }
