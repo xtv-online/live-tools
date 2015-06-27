@@ -52,124 +52,118 @@ Time since RX: #timeRX
 
 <body style="">
     <!-- Log Out Button in bottom left corner-->
-    <button class="btn btn-default" style="position:absolute; z-index:10; bottom:12px; left:12px;" onclick="localStorage.removeItem('identity'); document.location.href='/';"><span class="glyphicon glyphicon-log-out"></span></button>
+    <button class="btn btn-default" style="position:absolute; z-index:10; bottom:12px; left:12px;" onclick="localStorage.removeItem('identity'); document.location.href='/';">
+        <span class="glyphicon glyphicon-log-out"></span>
+    </button>
     <!-- Mutliview container is 480x270 as dictated by preview box in Atem HD Multiview-->
     <div id="display">
-        <div class="row" id="row1">
-            <div class="col-xs-5"> <!-- Column for clock-->
-                <div class="wrapper">
-            		<div class="clock">
-            			<div class="points">
-                            <div class='point p1'></div>
-                            <div class='point p2'></div>
-                            <div class='point p3'></div>
-                            <div class='point p4'></div>
-                            <div class='point p5'></div>
-                            <div class='point p6'></div>
-                            <div class='point p7'></div>
-                            <div class='point p8'></div>
-                            <div class='point p9'></div>
-                            <div class='point p10'></div>
-                            <div class='point p11'></div>
-                            <div class='point p12'></div>
-                            <div class='point p13'></div>
-                            <div class='point p14'></div>
-                            <div class='point p15'></div>
-                            <div class='point p16'></div>
-                            <div class='point p17'></div>
-                            <div class='point p18'></div>
-                            <div class='point p19'></div>
-                            <div class='point p20'></div>
-                            <div class='point p21'></div>
-                            <div class='point p22'></div>
-                            <div class='point p23'></div>
-                            <div class='point p24'></div>
-                            <div class='point p25'></div>
-                            <div class='point p26'></div>
-                            <div class='point p27'></div>
-                            <div class='point p28'></div>
-                            <div class='point p29'></div>
-                            <div class='point p30'></div>
-                            <div class='point p31'></div>
-                            <div class='point p32'></div>
-                            <div class='point p33'></div>
-                            <div class='point p34'></div>
-                            <div class='point p35'></div>
-                            <div class='point p36'></div>
-                            <div class='point p37'></div>
-                            <div class='point p38'></div>
-                            <div class='point p39'></div>
-                            <div class='point p40'></div>
-                            <div class='point p41'></div>
-                            <div class='point p42'></div>
-                            <div class='point p43'></div>
-                            <div class='point p44'></div>
-                            <div class='point p45'></div>
-                            <div class='point p46'></div>
-                            <div class='point p47'></div>
-                            <div class='point p48'></div>
-                            <div class='point p49'></div>
-                            <div class='point p50'></div>
-                            <div class='point p51'></div>
-                            <div class='point p52'></div>
-                            <div class='point p53'></div>
-                            <div class='point p54'></div>
-                            <div class='point p55'></div>
-                            <div class='point p56'></div>
-                            <div class='point p57'></div>
-                            <div class='point p58'></div>
-                            <div class='point p59'></div>
-                            <div class='point p0'></div>
-            			</div>
-            			<div class="center digital" id="hm"></div>
-            			<div class="center digital" id="s" style="font-size: 70px;"></div>
-            		</div>
-            	</div>
+        <div class="clock">
+            <div class="points">
+                <div class='point p1'></div>
+                <div class='point p2'></div>
+                <div class='point p3'></div>
+                <div class='point p4'></div>
+                <div class='point p5'></div>
+                <div class='point p6'></div>
+                <div class='point p7'></div>
+                <div class='point p8'></div>
+                <div class='point p9'></div>
+                <div class='point p10'></div>
+                <div class='point p11'></div>
+                <div class='point p12'></div>
+                <div class='point p13'></div>
+                <div class='point p14'></div>
+                <div class='point p15'></div>
+                <div class='point p16'></div>
+                <div class='point p17'></div>
+                <div class='point p18'></div>
+                <div class='point p19'></div>
+                <div class='point p20'></div>
+                <div class='point p21'></div>
+                <div class='point p22'></div>
+                <div class='point p23'></div>
+                <div class='point p24'></div>
+                <div class='point p25'></div>
+                <div class='point p26'></div>
+                <div class='point p27'></div>
+                <div class='point p28'></div>
+                <div class='point p29'></div>
+                <div class='point p30'></div>
+                <div class='point p31'></div>
+                <div class='point p32'></div>
+                <div class='point p33'></div>
+                <div class='point p34'></div>
+                <div class='point p35'></div>
+                <div class='point p36'></div>
+                <div class='point p37'></div>
+                <div class='point p38'></div>
+                <div class='point p39'></div>
+                <div class='point p40'></div>
+                <div class='point p41'></div>
+                <div class='point p42'></div>
+                <div class='point p43'></div>
+                <div class='point p44'></div>
+                <div class='point p45'></div>
+                <div class='point p46'></div>
+                <div class='point p47'></div>
+                <div class='point p48'></div>
+                <div class='point p49'></div>
+                <div class='point p50'></div>
+                <div class='point p51'></div>
+                <div class='point p52'></div>
+                <div class='point p53'></div>
+                <div class='point p54'></div>
+                <div class='point p55'></div>
+                <div class='point p56'></div>
+                <div class='point p57'></div>
+                <div class='point p58'></div>
+                <div class='point p59'></div>
+                <div class='point p0'></div>
+            </div>
+            <div class="center digital" id="hm"></div>
+            <div class="center digital" id="s" style="font-size: 200px;"></div>
+        </div>
 
-            </div> <!-- end clock column  -->
-
-            <div class="col-xs-7"> <!-- Stuff to the right of the clock -->
-                <div class="row" id="row1a"> <!-- First sub-row -->
-                    <div class="modulebox col-xs-5">
-                        <div class="boxtitle">
-                            <span>Time since RX</span>
-                        </div>
-                        <span id="timeRX">00:00:00</span>
-                    </div>
-                    <div class="modulebox col-xs-6">
-                        <div id="countdownTitle" class="boxtitle">
-                            <span>Countdown</span>
-                        </div>
-                        <span id="countdown">00:00.00</span>
-                    </div>
-                </div>
-
-                <div class="row modulebox" id="row1a"> <!-- Second sub-row -->
-                    <div class="boxtitle">
-                        <p>Current Segment</p>
-                    </div>
-                    <div id="currentSegment" class="segment">
-                        <span></span>
-                    </div>
-                </div>
+        <div id="righthandSide">
+            <div id="livestatus" class="segment" style="background:rgb(126, 0, 0);">
+                <span>OFF AIR</span>
             </div>
         </div>
 
-        <div class="row" id="row2"> <!-- stuff below clock -->
-            <div class="col-xs-5 modulebox" >
-                <div id="livestatus" style="background:rgb(126, 0, 0);">
-                    <span>OFF AIR</span>
-                </div>
+        <!-- <div class="modulebox">
+            <div class="boxtitle">
+                <span>Time since RX</span>
             </div>
-            <div class="col-xs-7 modulebox">
-                <div class="boxtitle">
-                    <p>Next Segment</p>
-                </div>
-                <div id="nextSegment" class="segment">
-                    <span></span>
-                </div>
+            <span id="timeRX">00:00:00</span>
+        </div>
+        <div class="modulebox">
+            <div id="countdownTitle" class="boxtitle">
+                <span>Countdown</span>
+            </div>
+            <span id="countdown">00:00.00</span>
+        </div>
+
+        <div class="modulebox">
+            Second sub-row
+            <div class="boxtitle">
+                <p>Current Segment</p>
+            </div>
+            <div id="currentSegment" class="segment">
+                <span></span>
             </div>
         </div>
+
+        <div class="modulebox">
+
+        </div>
+        <div class="modulebox">
+            <div class="boxtitle">
+                <p>Next Segment</p>
+            </div>
+            <div id="nextSegment" class="segment">
+                <span></span>
+            </div>
+        </div> -->
     </div>
 </body>
 

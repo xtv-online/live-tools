@@ -1,15 +1,17 @@
 .clock{
 	position:absolute;
-	width:300px;
-	height:300px;
+	width:980px;
+	height:980px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 50px;
 }
 .point{
 	position:absolute;
-	width:10px;
-	height:10px;
-	left:150px;
-	top:150px;
-	margin: -5px 0 0 -5px;
+	width:40px;
+	height:40px;
+	left:800px;
+	top:490px;
 	border-radius:50%;
 	background:gray;
 }
@@ -22,8 +24,8 @@
 	border-radius:50%;
 }
 .point{
-	-webkit-transform-origin: -139px 5px;
-	transform-origin: -139px 5px;
+	-webkit-transform-origin: -455px 0px;
+	transform-origin: -455px 0px;
 }
 .p0{
     -webkit-transform: translateX(144px) rotate(270deg);
@@ -268,21 +270,12 @@
 
 /* Styling */
 
-.wrapper{
-	width:330px;
-	height:330px;
-	position:absolute;
-    margin-top: 10px;
-	margin-bottom: -10px;
-    margin-left:10px;
-    margin-right:-10px;
-}
 .center{
 	position: relative;
 	text-align: center;
 	top: 27%;
 	margin: 0 auto;
-	font-size: 70pt;
+	font-size: 240pt;
 	color: #EF4136;
 	font-weight: bold;
 }
