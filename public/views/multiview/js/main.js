@@ -14,7 +14,7 @@ $(function() {
         customcountdown_module('#countdown', '#countdownTitle span');
 
         // Setup RX time display
-        rxtime_module('#timeRX', '#livestatus span', '#livestatus');
+        rxtime_module('#timeTX', '#livestatus span', '#livestatus');
 
     }
 

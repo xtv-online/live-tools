@@ -29,8 +29,8 @@
     <script src="/js/timeofday_module.js"></script>
     <script src="/js/casparcountdown_module.js"></script>
     <script src="/js/customcountdown_module.js"></script>
-    <script src="js/main.js"></script>
     <script src="/js/rxtime_module.js"></script>
+    <script src="js/main.js"></script>
     <script src="/js/jquery.textfill.min.js"></script>
 
     <!-- Local CSS -->
@@ -50,7 +50,7 @@ Countdown: #countdown
 Time since RX: #timeRX
 -->
 
-<body style="">
+<body>
     <!-- Log Out Button in bottom left corner-->
     <button class="btn btn-default" style="position:absolute; z-index:10; bottom:12px; left:12px;" onclick="localStorage.removeItem('identity'); document.location.href='/';">
         <span class="glyphicon glyphicon-log-out"></span>
@@ -127,6 +127,15 @@ Time since RX: #timeRX
         <div id="righthandSide">
             <div id="livestatus" class="segment" style="background:rgb(126, 0, 0);">
                 <span>OFF AIR</span>
+            </div>
+            <div id="livetime" class="segment">
+                TX: <span id="timeTX">00:00:00</span>
+            </div>
+            <div id="countdown" class="segment">
+                <span id="timeTX">00:00:00</span>
+            </div>
+            <div id="countdown" class="segment">
+                <span id="timeTX">00:00:00</span>
             </div>
         </div>
 
