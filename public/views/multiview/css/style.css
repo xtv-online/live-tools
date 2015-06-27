@@ -25,19 +25,24 @@
 	background-color: rgb(105, 64, 61);
 }
 
-#countdown {
+#dir_countdown {
     width: 100%;
-    height: 240px;
+    height: 250px;
     text-align: center;
-	padding-top: 15px;
+	padding-top: 25px;
     padding-bottom: 15px;
 	margin-top: 30px;
-	font-size: 150px;
-	background-color: rgb(105, 64, 61);
+	background-color: rgb(40, 50, 139);
 }
 
-.segment {
-    height:60px
+#vt_countdown {
+    width: 100%;
+    height: 250px;
+    text-align: center;
+	padding-top: 25px;
+    padding-bottom: 15px;
+	margin-top: 30px;
+	background-color: rgb(40, 139, 71);
 }
 
 .modulebox {
