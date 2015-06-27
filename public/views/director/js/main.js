@@ -4,8 +4,7 @@ $(function() {
         addButtons('CAM1');
     });
     
-    // toggle o air status
-    
+    // toggle on air status
     var liveMouseDown;
     $('#livestatus').mousedown(function() {
       liveMouseDown = setTimeout(function() {
@@ -24,6 +23,42 @@ $(function() {
         clearTimeout(liveMouseDown);
       }
     });
+    
+    $('#cdadd1m').click(function() {
+    socket.emit('custom countdown 1m');
+    });
+    
+    $('#cdadd10s').click(function() {
+    socket.emit('custom countdown 10s');
+    });
+    
+    $('#cdreset').click(function() {
+        socket.emit('reset custom countdown');
+    });
+    
+    $('#cdgo').click(function() {
+        socket.emit('toggle custom countdown');
+    });
+    
+    $('#cdtoggle').click(function() {
+        socket.emit('toggle countdowns');
+    });
+    
+    socket.on('custom active', function(customActive){
+        toggleSelector = "#cdtoggle"
+        if (customActive){
+            if ($(toggleSelector).hasClass( 'btn-danger' )) {
+                $(toggleSelector).toggleClass( 'btn-success' )
+                $(toggleSelector).toggleClass( 'btn-danger' )
+            };
+        } else {
+            if ($(toggleSelector).hasClass( 'btn-success' )) {
+                $(toggleSelector).toggleClass( 'btn-success' )
+                $(toggleSelector).toggleClass( 'btn-danger' )
+            };
+        };
+    });
+    
     
     handshaking_module(ready);
 

@@ -1,24 +1,24 @@
-function customcountdown_module(timeSelector, titleSelector, countdownFunction) {
+function customcountdown_module(timeSelector, titleSelector, countdownFunction, toggleSelector) {
 
-    socket.on('countdown', function(duration) {
-        
+    socket.on('countdown', function(data) {
         if (countdownFunction !== undefined) {
             countdownFunction(time);
         }
+        casparcountdownActive = !data.customActive;
+        if (data.customActive) {
+            $(titleSelector).text("Director's Countdown");
+            
+            
+            (data.duration >0) ? minutes = Math.floor(data.duration / 60): minutes = Math.abs(Math.ceil(data.duration / 60));
+            (data.duration >0) ? seconds = data.duration - (minutes * 60): seconds = Math.abs(data.duration + (minutes * 60));
+            
+            seconds = seconds.toFixed(2);
 
-        $(titleSelector).text("Director's Countdown");
-        
-        
-        (duration >0) ? minutes = Math.floor(duration / 60): minutes = Math.abs(Math.ceil(duration / 60));
-        (duration >0) ? seconds = duration - (minutes * 60): seconds = Math.abs(duration + (minutes * 60));
-        
-        seconds = seconds.toFixed(2);
+            minutes = ((minutes < 10 && minutes >= 0) ? "0" : "") + minutes;
+            if (data.duration < 0) {minutes = "-" + minutes}
+            seconds = ((seconds < 10 && seconds >= 0) ? "0" : "") + seconds;
 
-        minutes = ((minutes < 10 && minutes >= 0) ? "0" : "") + minutes;
-        if (duration < 0) {minutes = "-" + minutes}
-        seconds = ((seconds < 10 && seconds >= 0) ? "0" : "") + seconds;
-
-        $(timeSelector).text(minutes + ':' + seconds);
+            $(timeSelector).text(minutes + ':' + seconds);
+        }
     });
-
 }
