@@ -83,7 +83,7 @@ $(function() {
         messaging_module_initialise(newMessage, newAcknowledgement);
 
         // Setup RX time display
-        rxtime_module('#livetimer', '#livestatusText', '#livestatus');
+        txtime_module('#livetimer', '#livestatusText', '#livestatus');
 
     }
 

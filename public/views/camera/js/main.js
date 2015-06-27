@@ -34,7 +34,7 @@ $(function() {
         messaging_module_initialise(newMessage, newAcknowledgement);
         
         // Setup RX time display
-        rxtime_module('', '#livestatus span', '#livestatus');
+        txtime_module('', '#livestatus span', '#livestatus');
 
     }
 
