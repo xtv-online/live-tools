@@ -8,10 +8,10 @@ $(function() {
         timeofday_module('', updateClock);
 
         // Setup Caspar Countdown Module
-        casparcountdown_module('#countdown', '#countdownTitle span');
+        casparcountdown_module('#vt_countdown_time', '#vt_countdown_title', true);
 
         // Setup Custom Countdown
-        customcountdown_module('#countdown', '#countdownTitle span');
+        customcountdown_module('#dir_countdown_time', '#dir_countdown_title', true);
 
         // Setup RX time display
         txtime_module('#timeTX', '#livestatus span', '#livestatus');

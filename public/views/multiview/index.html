@@ -56,7 +56,7 @@ Time since RX: #timeRX
         <span class="glyphicon glyphicon-log-out"></span>
     </button>
     <!-- Mutliview container is 480x270 as dictated by preview box in Atem HD Multiview-->
-    <div id="display">
+    <div id="display" style="width:1920px;height:1080px;">
         <div class="clock">
             <div class="points">
                 <div class='point p1'></div>
@@ -132,13 +132,12 @@ Time since RX: #timeRX
                 TX: <span id="timeTX">00:00:00</span>
             </div>
             <div id="dir_countdown" class="segment">
-                <span class=""
-
-                ></span>
-                <span id="countdown_time">00:00:00</span>
+                <div id="dir_countdown_title" style="font-size: 30px;">Director's Countdown</div>
+                <span id="dir_countdown_time" style="font-size: 130px;">00:00.00</span>
             </div>
-            <div id="countdown" class="segment">
-                <span id="timeTX">00:00:00</span>
+            <div id="vt_countdown" class="segment">
+                <div id="vt_countdown_title" style="font-size: 30px;">VT Countdown</div>
+                <span id="vt_countdown_time" style="font-size: 130px;">00:00.00</span>
             </div>
         </div>
 
