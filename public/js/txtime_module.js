@@ -1,4 +1,4 @@
-function rxtime_module(timeSelector, titleSelector, divSelector) {
+function txtime_module(timeSelector, titleSelector, divSelector) {
 
     socket.on('live status', function(duration, status) {
         
