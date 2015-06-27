@@ -2,10 +2,11 @@ var casparcountdownActive = false;
 
 function casparcountdown_module(timeSelector, pathSelector, alwaysActive, countdownFunction) {
     
-    alwaysActive = typeof alwaysActive !== 'undefined' ? alwaysActive : false;
+    alwaysActive = typeof alwaysActive == 'undefined' ? alwaysActive : false;
 
     socket.on('cg countdown path', function(path) {
-        if(casparcountdownActive && !alwaysActive){
+		
+        if(casparcountdownActive || alwaysActive){
             $(pathSelector).text(path);
         }
     });
@@ -15,7 +16,7 @@ function casparcountdown_module(timeSelector, pathSelector, alwaysActive, countd
         if (countdownFunction !== undefined) {
             countdownFunction(time);
         }
-        if(casparcountdownActive  && !alwaysActive){
+        if(casparcountdownActive  || alwaysActive){
             var minutes = Math.floor(time / 60);
             var seconds = time - (minutes * 60);
 
