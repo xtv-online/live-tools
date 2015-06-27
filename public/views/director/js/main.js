@@ -44,6 +44,8 @@ $(function() {
         socket.emit('toggle countdowns');
     });
     
+    handshaking_module(ready);
+    
     socket.on('custom active', function(customActive){
         toggleSelector = "#cdtoggle"
         if (customActive){
@@ -61,9 +63,6 @@ $(function() {
         };
     });
     
-    
-    handshaking_module(ready);
-
     function ready() {
 
         // Set Up Tally
