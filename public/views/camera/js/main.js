@@ -35,6 +35,9 @@ $(function() {
 
         // Setup TX time display
         txtime_module('', '', '', liveStatusTrigger);
+        
+        // Setup intercom buttons
+        intercom_listen_module("#muteDir", "#director-playback", "#localTx");
 
     }
 
