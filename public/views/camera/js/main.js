@@ -33,7 +33,7 @@ $(function() {
         // Setup Messaging Module
         messaging_module_initialise(newMessage);
 
-        // Setup RX time display
+        // Setup TX time display
         txtime_module('', '', '', liveStatusTrigger);
 
     }
