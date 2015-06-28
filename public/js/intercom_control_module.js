@@ -1,7 +1,8 @@
-function intercom_control_module(){
+function intercom_control_module(localPlaybackAudio){
     var localstream;
     var peer;
     var peerId;
+    var clientData;
 
     connectToBroker(identity._id, callClients);
 
@@ -9,16 +10,15 @@ function intercom_control_module(){
         $.getJSON('http://localhost:3000/clients/api', function(data) {
             data.forEach(function(role) {
                 if (role.hasTalkBack) {
-                    console.log("Make Buttons for", role.shortName);
-                    addButtons(role.shortName);
+                    addButtons(role.shortName, role._id);
                     role.clients.forEach(function(client) {
                         if (client.isWebRtcCapable) {
-                            console.log("Connecting to", client._id);
                             startCall(client._id)
                         }
                     });
                 }
             });
+            clientData = data;
         });
     }
 
@@ -41,23 +41,15 @@ function intercom_control_module(){
         
     };
 
-    function addClient(peerId, role) {
-        if(!clients.hasOwnProperty(role)){
-            clients[role] = new Array();
-            addButtons(role);
-        };
-        clients[role].push(peerId);
-    };
-
-    function addButtons(role){
+    function addButtons(roleName, roleId){
         // add Tally
-        $('<div class="point" id="' + role + '-tally"></div>').appendTo('#tallyIndicator');
+        $('<div class="point" id="' + roleId + '-tally"></div>').appendTo('#tallyIndicator');
         // add TX button
-        $('<button class="btn-circle-lg btn btn-success txButton" id="' + role + '-muteTx"' + '>' + role + '</button>').bind("click", muteTx).appendTo('#txControl');
+        $('<button class="btn-circle-lg btn btn-success txButton" id="' + roleId + '-muteTx"' + '>' + roleName + '</button>').bind("click", muteTx).appendTo('#txControl');
         // add RX button
-        $('<button class="btn-circle-lg btn btn-success rxButton" id="' + role + '-muteRx"' + '>' + role + '</button>').bind("click", muteRx).appendTo('#rxControl');
+        $('<button class="btn-circle-lg btn btn-success rxButton" id="' + roleId + '-muteRx"' + '>' + roleName + '</button>').bind("click", muteRx).appendTo('#rxControl');
         // add Status
-        $('<div class="point" id="' + role + '-statu"></div>').appendTo('#statusIndicator');
+        $('<div class="point" id="' + roleId + '-statu"></div>').appendTo('#statusIndicator');
     };
 
     function startCall(destination)
@@ -74,12 +66,37 @@ function intercom_control_module(){
         });
         // send signal to all clients that not muted
     };
-
+    
+    
+    // mute director's playback on selected role
     function muteTx(){
-        
+        buttonId = $(this).attr('id')
+        roleToMute = buttonId.substring(0, $(this).attr('id').length - 7);
+        if ($("#" + buttonId).hasClass( 'btn-danger' )) {
+            // unmute
+            socket.emit('tell client to listen to director', roleToMute);
+        } else {
+            // mute
+            socket.emit('tell client to not listen to director', roleToMute);
+        };
     };
 
     function muteRx(){
         
     };
+    
+    socket.on('director: client not listening', function(roleId){
+        socket.emit('tell client to not listen to director', roleId);
+        $("#" + roleId + "-muteTx").removeClass( 'btn-success' );
+        $("#" + roleId + "-muteTx").addClass( 'btn-danger' );
+    });
+    
+    socket.on('director: client listening', function(roleId){
+        socket.emit('tell client to listen to director', roleId);
+        $("#" + roleId + "-muteTx").addClass( 'btn-success' );
+        $("#" + roleId + "-muteTx").removeClass( 'btn-danger' );
+    });
+    
+    
+    
 }

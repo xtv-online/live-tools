@@ -33,23 +33,19 @@ function intercom_listen_module(localPlaybackButton, localPlaybackAudio, localTx
     };
 
     $(localPlaybackButton).click(function() {
-        if ($(localPlaybackButton).hasClass( 'btn-danger' )) {
+        if (!$(localPlaybackButton).hasClass( 'highlighted' )) {
             // unmute
             document.getElementById(localPlaybackAudio.substring(1)).muted = false;
-            socket.emit('tell director that client is listening to director', identity.role[0]._id);        
-            $(localPlaybackButton).toggleClass( 'btn-success' );
-            $(localPlaybackButton).toggleClass( 'btn-danger' );
+            socket.emit('tell director that client is listening to director', identity.role[0]._id);
         } else {
             // mute
             document.getElementById(localPlaybackAudio.substring(1)).muted = true;
             socket.emit('tell director that client is not listening to director', identity.role[0]._id);
-            $(localPlaybackButton).toggleClass( 'btn-success' );
-            $(localPlaybackButton).toggleClass( 'btn-danger' );
         };
     });
      
     $(localTxButton).click(function() {
-        if ($(localTxButton).hasClass( 'btn-danger' )) {
+        if (!$(localTxButton).hasClass( 'highlighted' )) {
             socket.emit('tell director to listen to client', identity.role[0]._id);
            // toggle class on director confirm
         } else {
@@ -58,47 +54,31 @@ function intercom_listen_module(localPlaybackButton, localPlaybackAudio, localTx
        };
     });
      
-    socket.on('tell client that director is not listening', function(roleId) {
+    socket.on('client: director not listening', function(roleId) {
         if (roleId == identity.role[0]._id){
-            if ($(localTxButton).hasClass( 'btn-success' )) {
-                // mute
-                $(localTxButton).toggleClass( 'btn-success' );
-                $(localTxButton).toggleClass( 'btn-danger' );
-            };
+            $(localTxButton).removeClass( 'highlighted' );
         };
     });    
     
-    socket.on('tell client that director is listening', function(roleId) {
+    socket.on('client: director is listening', function(roleId) {
         if (roleId == identity.role[0]._id){
-            if ($(localTxButton).hasClass( 'btn-danger' )) {
-                // mute
-                $(localTxButton).toggleClass( 'btn-success' );
-                $(localTxButton).toggleClass( 'btn-danger' );
-            }; 
+            $(localTxButton).addClass( 'highlighted' );
         };
     });   
     
-    socket.on('tell client to not listen to director', function(roleId) {
+    socket.on('client: stop listening to director', function(roleId) {
         if (roleId == identity.role[0]._id){
             document.getElementById(localPlaybackAudio.substring(1)).muted = true;
             socket.emit('tell director that client is not listening to director', identity.role[0]._id);
-            if ($(localPlaybackButton).hasClass( 'btn-success' )) {
-                // mute
-                $(localPlaybackButton).toggleClass( 'btn-success' );
-                $(localPlaybackButton).toggleClass( 'btn-danger' );
-            };
+            $(localPlaybackButton).removeClass( 'highlighted' );
         };
     });    
     
-    socket.on('tell client to listen to director', function(roleId) {
+    socket.on('client: listen to director', function(roleId) {
         if (roleId == identity.role[0]._id){
-            document.getElementById(localPlaybackAudio.substring(1)).muted = true;
+            document.getElementById(localPlaybackAudio.substring(1)).muted = false;
             socket.emit('tell director that client is listening to director', identity.role[0]._id);
-            if ($(localPlaybackButton).hasClass( 'btn-danger' )) {
-                // mute
-                $(localPlaybackButton).toggleClass( 'btn-success' );
-                $(localPlaybackButton).toggleClass( 'btn-danger' );
-            };
+            $(localPlaybackButton).addClass( 'highlighted' );
         };
     });
 };
