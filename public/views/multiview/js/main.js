@@ -1,5 +1,5 @@
 $(function() {
-    var socket = io();
+    socket = io();
     ready();
 
     // handshaking_module(ready);
