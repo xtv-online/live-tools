@@ -1,6 +1,8 @@
 $(function() {
+    var socket = io();
+    ready();
 
-    handshaking_module(ready);
+    // handshaking_module(ready);
 
     function ready() {
 
