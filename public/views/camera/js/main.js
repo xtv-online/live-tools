@@ -32,9 +32,9 @@ $(function() {
 
         // Setup Messaging Module
         messaging_module_initialise(newMessage, newAcknowledgement);
-        
+
         // Setup RX time display
-        txtime_module('', '#livestatus span', '#livestatus');
+        txtime_module('', '', '', liveStatusTrigger);
 
     }
 
@@ -46,5 +46,15 @@ $(function() {
 
     function newAcknowledgement(sender) {
         console.log('Acknowledgement from ' + sender);
+    }
+
+    $('#liveSymbol').hide();
+
+    function liveStatusTrigger(isLive) {
+        if (isLive) {
+            $('#liveSymbol').show(400);
+        } else {
+            $('#liveSymbol').hide(400);
+        }
     }
 });

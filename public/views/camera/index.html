@@ -9,7 +9,6 @@
     <title>Client Template</title>
     <!-- Local CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="/css/xtv.css">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -59,10 +58,13 @@ Buttons:
     <!-- Log Out Button -->
     <button class="btn btn-default" style="position:absolute; z-index:10; bottom:12px; left:12px;" onclick="localStorage.removeItem('identity'); document.location.href='/';"><span class="glyphicon glyphicon-log-out"></span></button>
     <!-- View -->
+    <div id="portraitWarning">
+        Use your device in landscape orientation.
+    </div>
     <div id="display">
         <div id="row1" class="row"> <!-- Row 1 -->
             <!-- Tally -->
-            <div class="modulebox col-xs-2">
+            <div class="modulebox col-xs-3">
                 <div class="boxtitle">
                     <span>Input</span>
                 </div>
@@ -73,14 +75,14 @@ Buttons:
             <!-- Time of Day -->
             <div class="modulebox col-xs-5">
                 <div class="boxtitle">
-                    <span>Time of Day</span>
+                    <span>Time of Day</span><div id="liveSymbol">L</div>
                 </div>
                 <div id="timeofday" class="segment">
                     <span></span>
                 </div>
             </div>
             <!-- Countdown -->
-            <div class="modulebox col-xs-5">
+            <div class="modulebox col-xs-4">
                 <div id="countdownTitle" class="boxtitle">
                     <span>Countdown</span>
                 </div>
@@ -91,9 +93,9 @@ Buttons:
         </div>
         <!-- End Row 1 -->
 
-        <!-- Row 2 -->
+        <!-- Row 2
         <div id="row2" class="row">
-            <!-- Talkback & Message Controls -->
+            Talkback & Message Controls
             <div class="modulebox col-xs-4">
                 <div class="boxtitle">
                     <p>Talkback</p>
@@ -106,7 +108,7 @@ Buttons:
                     </div>
                 </div>
             </div>
-            <!-- Message Display (unless want above?) -->
+            Message Display (unless want above?)
             <div class="modulebox col-xs-8">
                 <div class="boxtitle">
                     <p>Message</p>
@@ -116,11 +118,11 @@ Buttons:
                 </div>
             </div>
         </div>
-        <!-- End Row 2 -->
+        End Row 2
 
-        <!-- Row 3 -->
+        Row 3
         <div id="row3" class="row">
-            <!-- On Air Status -->
+            On Air Status
             <div class="col-xs-4 modulebox" >
                 <div class="boxtitle">
                     <p>Status</p>
@@ -130,7 +132,7 @@ Buttons:
                 </div>
             </div>
 
-            <!-- Current Segment (Do we want next Segment?) -->
+            Current Segment (Do we want next Segment?)
             <div class="col-xs-8 modulebox" >
                 <div class="boxtitle">
                     <p>Current Segment</p>
@@ -139,7 +141,7 @@ Buttons:
                     <span></span>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </div>
 </body>
