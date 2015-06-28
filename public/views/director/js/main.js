@@ -4,46 +4,6 @@ $(function() {
         addButtons('CAM1');
     });
     
-    // toggle on air status
-    var liveMouseDown;
-    $('#livestatus').mousedown(function() {
-      liveMouseDown = setTimeout(function() {
-        switch($('#livestatus').css('background-color')) {
-            case 'rgb(239, 65, 54)':
-                socket.emit('status off air');
-                break;
-            case 'rgb(126, 0, 0)':
-                socket.emit('status on air reset');
-                break;
-        }
-      }, 1200);
-    });
-    $('#livestatus').mouseup(function() {
-      if (liveMouseDown) {
-        clearTimeout(liveMouseDown);
-      }
-    });
-    
-    $('#cdadd1m').click(function() {
-    socket.emit('custom countdown 1m');
-    });
-    
-    $('#cdadd10s').click(function() {
-    socket.emit('custom countdown 10s');
-    });
-    
-    $('#cdreset').click(function() {
-        socket.emit('reset custom countdown');
-    });
-    
-    $('#cdgo').click(function() {
-        socket.emit('toggle custom countdown');
-    });
-    
-    $('#cdtoggle').click(function() {
-        socket.emit('toggle countdowns');
-    });
-    
     handshaking_module(ready);
     
     socket.on('custom active', function(customActive){
@@ -84,10 +44,59 @@ $(function() {
         messaging_module_initialise(newMessage, newAcknowledgement);
 
         // Setup RX time display
-        txtime_module('#livetimer', '#livestatusText', '#livestatus');
+        txtime_module('#livetimer', '#livestatusText', '#livestatus');        
+            
+        // init countdown
+        $("#cdtoggle").trigger( "click" );
 
     }
-
+    
+    // toggle on air status
+    var liveMouseDown;
+    
+    $('#livestatus').mousedown(function() {
+        liveMouseDown = setTimeout(function() {
+            switch($('#livestatus').css('background-color')) {
+                case 'rgb(239, 65, 54)':
+                    socket.emit('status off air');
+                    break;
+                case 'rgb(126, 0, 0)':
+                    socket.emit('status on air reset');
+                    break;
+            }
+        }, 1200);
+    });
+    $('#livestatus').mouseup(function() {
+        if (liveMouseDown) {
+            clearTimeout(liveMouseDown);
+        }
+    });
+    
+    $('#cdadd1m').click(function() {
+        socket.emit('custom countdown 1m');
+    });
+    
+    $('#cdadd10s').click(function() {
+        socket.emit('custom countdown 10s');
+    });
+    
+    $('#cdreset').click(function() {
+        socket.emit('reset custom countdown');
+    });
+    
+    $('#cdgo').click(function() {
+        socket.emit('toggle custom countdown');
+    });
+    
+    $('#cdtoggle').click(function() {
+        socket.emit('toggle countdowns');
+    });
+    
+    $('#sndMsg').click(function() {
+        messaging_module_broadcastMessage($('#customMessage').val());
+        $('#msgModal').modal('hide');
+        $('#customMessage').val("");
+    });
     
     function newAcknowledgement(sender) {
         console.log('Acknowledgement from ' + sender);

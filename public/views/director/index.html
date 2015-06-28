@@ -50,25 +50,16 @@
         <!-- Row 1-->
         <div id="row1" class="row mainrow">
             <!-- Time of Day -->
-            <div class="modulebox col-xs-3">
-                <div class="boxtitle">
-                    <span>Time of Day</span>
-                </div>
+            <div class="modulebox col-xs-4 col-sm-3">
                 <div id="timeofday" class="segment">
                     <span>88:88:88</span>
-                </div>
-            </div>
-            <!-- Time since TX: col-4 -->
-            <div class="modulebox col-xs-3">
-                <div class="boxtitle">
-                    <span>Status</span>
                 </div>
                 <div id="livestatus" style="background-color:rgb(126, 0, 0); margin: 5px; font-size: 50%;">
                     <span id="livestatusText">OFF AIR</span><br /><span id="livetimer">00:00:00</span>
                 </div>
             </div>
             <!-- Countdown Settings: col-4 -->
-            <div class="modulebox col-xs-3">
+            <div class="modulebox col-xs-4 col-sm-3">
                 <div id="countdownTitle" class="boxtitle">
                     <span>Initialise first..</span>
                 </div>
@@ -76,7 +67,7 @@
                     <span>88:88.88</span>
                 </div>
             </div>
-            <div class="modulebox col-xs-3">
+            <div class="modulebox col-xs-4 col-sm-6">
               <div class="btn-group">
                 <button id="cdadd1m" class="btn btn-default">+1 Min</button>
                 <button id="cdadd10s" class="btn btn-default">+10 Sec</button>
@@ -87,6 +78,30 @@
                 <button id="cdgo" class="btn btn-default">GO</button>
                 <button id="cdtoggle" class="btn btn-success">Init</button>
               </div>
+              
+              <!-- Messaging Modal -->
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#msgModal">
+                Send Message..
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title">Send Message</h4>
+                    </div>
+                    <div class="modal-body">
+                      <textarea class="form-control" id="customMessage" rows="3"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button id="sndMsg" class="btn btn-primary">Send Message</button>
+                    </div>
+                  </div>
+                </div>
+              
             </div>
         </div>
         <!-- End Row 1-->

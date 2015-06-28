@@ -34,3 +34,14 @@ textarea {
     float: left;
 }
 
+div {
+    border-style: solid;
+    border-color: white;
+    border-width: 0px;}
+    
+#countdownTitle{
+    height: 65px;
+    padding-top: 10px;
+}
+
+
