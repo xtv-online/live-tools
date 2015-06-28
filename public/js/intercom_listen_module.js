@@ -1,15 +1,47 @@
 function intercom_listen_module(localPlaybackButton, localPlaybackAudio, localTxButton) {
+    
+    var localstream;
+    var peer;
+    connectToBroker(identity._id);
+    
+    function connectToBroker(id){
+        peer = new Peer(id, {key: PEERJSKEY});
+
+        // init microphone
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+        // save stream object pointer
+        navigator.getUserMedia(
+          {video: false, audio: true},
+          function(stream) {
+            localstream = stream;
+          },
+          function(err) {
+            console.log('Failed to get local stream' ,err);
+        });
+        
+        // RX VOX
+        peer.on('call', function(call) {
+            console.log('Received Call: ', call);
+            call.answer(localstream); // Answer the call with an audio stream.
+            call.on('stream', function(remoteStream) {
+                console.log('Playing remote stream ', remoteStream);
+                $("#director-playback").attr("src", URL.createObjectURL(remoteStream));
+            });        
+        });
+        
+    };
 
     $(localPlaybackButton).click(function() {
         if ($(localPlaybackButton).hasClass( 'btn-danger' )) {
             // unmute
-            $(localPlaybackAudio).prop("muted", false);
+            document.getElementById(localPlaybackAudio.substring(1)).muted = false;
             socket.emit('tell director that client is listening to director', identity.role[0]._id);        
             $(localPlaybackButton).toggleClass( 'btn-success' );
             $(localPlaybackButton).toggleClass( 'btn-danger' );
         } else {
             // mute
-            $(localPlaybackAudio).prop("muted", true);
+            document.getElementById(localPlaybackAudio.substring(1)).muted = true;
             socket.emit('tell director that client is not listening to director', identity.role[0]._id);
             $(localPlaybackButton).toggleClass( 'btn-success' );
             $(localPlaybackButton).toggleClass( 'btn-danger' );
@@ -48,7 +80,7 @@ function intercom_listen_module(localPlaybackButton, localPlaybackAudio, localTx
     
     socket.on('tell client to not listen to director', function(roleId) {
         if (roleId == identity.role[0]._id){
-            $(localPlaybackAudio).prop("muted", true);
+            document.getElementById(localPlaybackAudio.substring(1)).muted = true;
             socket.emit('tell director that client is not listening to director', identity.role[0]._id);
             if ($(localPlaybackButton).hasClass( 'btn-success' )) {
                 // mute
@@ -60,7 +92,7 @@ function intercom_listen_module(localPlaybackButton, localPlaybackAudio, localTx
     
     socket.on('tell client to listen to director', function(roleId) {
         if (roleId == identity.role[0]._id){
-            $(localPlaybackAudio).prop("muted", false);
+            document.getElementById(localPlaybackAudio.substring(1)).muted = true;
             socket.emit('tell director that client is listening to director', identity.role[0]._id);
             if ($(localPlaybackButton).hasClass( 'btn-danger' )) {
                 // mute
