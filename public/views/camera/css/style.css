@@ -69,6 +69,8 @@
     text-align: center;
     /* font-family: monospace; */
     line-height: 1em;
+    font-weight: 100;
+
 }
 div#liveSymbol {
     background-color: #EF4136;
@@ -84,10 +86,10 @@ div#liveSymbol {
     margin-left: 0.5em;
 }
 #portraitWarning {
-    position:absolute;
-    z-index:-10;
-    top:12px;
-    left:12px;
+    position: absolute;
+    z-index: -10;
+    top: 12px;
+    left: 12px;
 }
 @media only screen and (max-width: 567px) {
     .modulebox {
@@ -111,14 +113,47 @@ div#liveSymbol {
     }
 }
 #row1 {
-    height: 33%;
+    height: 25%;
 }
 #row2 {
-    height: 33%;
+    height: 60%;
 }
 #row3 {
-    height: 33%;
+    height: 15%;
 }
 #livestatus {
     text-align: center;
+}
+div#messageDisplay {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+div#messageDisplay .title {
+    font-size: 2.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+div#messageDisplay .message {
+    font-size: 1.7em;
+    padding-left: 3em;
+    padding-right: 3em;
+    width: 100%;
+    font-weight: 100;
+}
+div#messageDisplay .acknowledge {
+    font-size: 1.4em;
+    padding-left: 3em;
+    padding-right: 3em;
+    width: 100%;
+    position: absolute;
+    bottom: 0.5em;
+    font-weight: 200;
+    border-top: 1px solid #acacac;
+    border-bottom: 1px solid #acacac;
+    background-color: #FFFFFF;
+    color: #2a001b;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

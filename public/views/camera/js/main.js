@@ -38,14 +38,28 @@ $(function() {
 
     }
 
-    $('#livestatus').textfill({});
+    $('div#messageDisplay .acknowledge').hide();
 
     function newMessage(message, sender) {
         console.log('Message from ' + sender, message);
-    }
+        $('div#messageDisplay .title').text(sender);
+        $('div#messageDisplay .message').text(message);
 
-    function newAcknowledgement(sender) {
-        console.log('Acknowledgement from ' + sender);
+        $('div#messageDisplay .title').show();
+        $('div#messageDisplay .message').show();
+        $('div#messageDisplay .acknowledge').show();
+
+        var ack = setInterval(function () {
+            $('div#messageDisplay .acknowledge').fadeToggle(1000);
+        }, 800);
+
+        $('div#messageDisplay').on('click', function () {
+            messaging_module_acknowledge();
+            $('div#messageDisplay .title').hide(400);
+            $('div#messageDisplay .message').hide(400);
+            $('div#messageDisplay .acknowledge').hide(400);
+            clearInterval(ack);
+        });
     }
 
     $('#liveSymbol').hide();
