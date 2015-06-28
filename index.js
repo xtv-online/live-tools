@@ -10,7 +10,7 @@ var http = require('http').Server(app);
 var PORT = 3000;
 
 // Log all requests in server output
-// app.use(logger('dev'));
+app.use(logger('dev'));
 
 app.use(function (req, res, next) {
     res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
@@ -28,7 +28,7 @@ app.use('/config/api', configurationAPIRouter);
 
 // Route for Client Info API
 var clientAPIRouter = require('./lib/client-api-router');
-app.use('/role/api', clientAPIRouter);
+app.use('/clients/api', clientAPIRouter);
 
 // Route for Role API
 var rolesAPIRouter = require('./lib/roles-api-router');
