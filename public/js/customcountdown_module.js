@@ -1,5 +1,7 @@
 function customcountdown_module(timeSelector, titleSelector, alwaysActive, countdownFunction) {
-    alwaysActive = ((typeof alwaysActive == 'undefined') ? alwaysActive : false);
+    if (typeof alwaysActive == 'undefined'){
+        alwaysActive = false;
+    };    
     
     socket.on('countdown', function(data) {
         if (countdownFunction !== undefined) {

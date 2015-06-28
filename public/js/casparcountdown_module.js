@@ -2,7 +2,9 @@ var casparcountdownActive = false;
 
 function casparcountdown_module(timeSelector, pathSelector, alwaysActive, countdownFunction) {
     
-    alwaysActive = typeof alwaysActive == 'undefined' ? alwaysActive : false;
+    if (typeof alwaysActive == 'undefined'){
+        alwaysActive = false;
+    };
 
     socket.on('cg countdown path', function(path) {
 		
