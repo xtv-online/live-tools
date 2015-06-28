@@ -26,6 +26,9 @@
     <!-- Socket.io -->
     <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
 
+    <!-- PeerJS -->
+    <script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+
     <!-- Local JS -->
     <script src="/js/handshaking_module.js"></script>
     <script src="/js/tally_module.js"></script>
@@ -36,6 +39,7 @@
     <script src="/js/txtime_module.js"></script>
     <script src="/js/intercom_listen_module.js"></script>
     <script src="js/main.js"></script>
+    <script src="/js/config.js"></script>
     <script src="/js/jquery.textfill.min.js"></script>
 
 </head>
@@ -64,7 +68,7 @@ Buttons:
         Use your device in landscape orientation.
     </div>
     <div id="playback">
-      <audio id="director-playback" autoplay="autoplay" muted="false"></audio>
+      <audio id="director-playback" autoplay="autoplay"></audio>
     </div>
     <div id="display">
         <div id="row1" class="row"> <!-- Row 1 -->
