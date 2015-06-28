@@ -205,3 +205,15 @@ div.footer-container .btn-group button.highlighted {
     color: #2a001b;
     background-color: #D4D5D6;
 }
+@media only screen and (max-width: 567px) {
+    div.footer-container .btn-group {
+        padding-left: 6px;
+    }
+    div.footer-container .btn-group button {
+        width: 42px;
+        height: 42px;
+        font-size: 14px;
+        margin-bottom: 3px;
+        margin-right: 6px;
+    }
+}
