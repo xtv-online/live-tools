@@ -5,7 +5,9 @@
      });
 
      socket.on('messaging acknowledgement', function(senderName) {
-         acknowledgementFunction(senderName);
+         if (acknowledgementFunction) {
+             acknowledgementFunction(senderName);
+         }
      });
  }
 

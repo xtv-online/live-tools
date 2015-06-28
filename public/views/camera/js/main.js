@@ -31,7 +31,7 @@ $(function() {
         customcountdown_module('#countdown span', '#countdownTitle span');
 
         // Setup Messaging Module
-        messaging_module_initialise(newMessage, newAcknowledgement);
+        messaging_module_initialise(newMessage);
 
         // Setup RX time display
         txtime_module('', '', '', liveStatusTrigger);
@@ -41,7 +41,6 @@ $(function() {
     $('div#messageDisplay .acknowledge').hide();
 
     function newMessage(message, sender) {
-        console.log('Message from ' + sender, message);
         $('div#messageDisplay .title').text(sender);
         $('div#messageDisplay .message').text(message);
 
