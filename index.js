@@ -10,7 +10,7 @@ var http = require('http').Server(app);
 var PORT = 3000;
 
 // Log all requests in server output
-app.use(logger('dev'));
+// app.use(logger('dev'));
 
 app.use(function (req, res, next) {
     res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
