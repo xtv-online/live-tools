@@ -1,15 +1,124 @@
+@font-face {
+    font-family: 'DSDIGI';
+    src: url('./DSDIGI.eot');
+    src: local('DSDIGI'), url('./DSDIGI.woff') format('woff'), url('./DSDIGI.ttf') format('truetype');
+}
+.btn-circle {
+    width: 49px !important;
+    height: 49px !important;
+    text-align: center !important;
+    padding: 5px 0 !important;
+    font-size: 20px !important;
+    line-height: 2.00 !important;
+    border-radius: 30px !important;
+}
+.btn-circle-micro {
+    width: 19px !important;
+    height: 19px !important;
+    text-align: center !important;
+    padding: 1px 0 !important;
+    font-size: 13px !important;
+    line-height: 0.1 !important;
+    border-radius: 30px !important;
+}
+.btn-circle-sm {
+    width: 35px !important;
+    height: 35px !important;
+    text-align: center !important;
+    padding: 2px 0 !important;
+    font-size: 20px !important;
+    line-height: 1.65 !important;
+    border-radius: 30px !important;
+}
+.btn-circle-lg {
+    width: 79px !important;
+    height: 79px !important;
+    text-align: center !important;
+    padding: 13px 0 !important;
+    font-size: 20px !important;
+    line-height: 2.00 !important;
+    border-radius: 70px !important;
+    margin: 5px;
+}
+#display {
+    height: 100vh;
+    width: 100vw;
+    background: #2a001b;
+    color: #D4D5D6;
+}
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
+}
+.modulebox {
+    padding: 10px;
+    text-align: center;
+    border: 0px solid;
+    height: 100%;
+    font-size: 300%;
+    text-align: center;
+}
+.digital {
+    font-family: 'DSDIGI';
+    font-size: 115%;
+    line-height: 100%
+}
+.boxtitle {
+    font-size: 14pt;
+    text-align: center;
+    /* font-family: monospace; */
+    line-height: 1em;
+}
+div#liveSymbol {
+    background-color: #EF4136;
+    border: 2px solid #2a001b;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    padding-top: 0.15em;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 0.4em;
+    margin-left: 0.5em;
+}
+#portraitWarning {
+    position:absolute;
+    z-index:-10;
+    top:12px;
+    left:12px;
+}
+@media only screen and (max-width: 567px) {
+    .modulebox {
+        font-size: 255%;
+    }
+    .boxtitle {
+        font-size: 10pt;
+    }
+}
+@media screen and (orientation:portrait) {
+    #display {
+        visibility: hidden;
+    }
+}
+@media screen and (orientation:landscape) {
+    #display {
+        visibility: visible;
+    }
+    #portraitWarning {
+        visibility: hidden;
+    }
+}
 #row1 {
     height: 33%;
 }
-
 #row2 {
     height: 33%;
 }
-
 #row3 {
     height: 33%;
 }
-
 #livestatus {
     text-align: center;
 }
