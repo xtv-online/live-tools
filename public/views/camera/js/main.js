@@ -49,7 +49,7 @@ $(function() {
         $('div#messageDisplay .acknowledge').show();
 
         var ack = setInterval(function () {
-            $('div#messageDisplay .acknowledge').fadeToggle(1000);
+            $('div#messageDisplay .acknowledge').fadeToggle(800);
         }, 800);
 
         $('div#messageDisplay').on('click', function () {
