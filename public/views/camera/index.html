@@ -34,6 +34,7 @@
     <script src="/js/customcountdown_module.js"></script>
     <script src="/js/messaging_module.js"></script>
     <script src="/js/txtime_module.js"></script>
+    <script src="/js/intercom_listen_module.js"></script>
     <script src="js/main.js"></script>
     <script src="/js/jquery.textfill.min.js"></script>
 
@@ -63,7 +64,7 @@ Buttons:
         Use your device in landscape orientation.
     </div>
     <div id="playback">
-      <audio id="director-playback" autoplay="autoplay"></audio>
+      <audio id="director-playback" autoplay="autoplay" muted="false"></audio>
     </div>
     <div id="display">
         <div id="row1" class="row"> <!-- Row 1 -->
@@ -107,6 +108,15 @@ Buttons:
                     Tap to Acknowledge
                 </div>
             </div>
+        </div>
+        
+        <div id="row2" class="row">
+          <div class="col-xs-2">
+          </div
+          <div class="btn-group">
+            <button id="localTx" class="btn-success">TX</button>
+            <button id="muteDir" class="btn-success">DIR</button>
+          </div>
         </div>
 
     </div>
