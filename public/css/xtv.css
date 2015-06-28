@@ -44,8 +44,9 @@ body{
 .boxtitle {
     font-size: 16pt;
     text-align: center;
-    font-family: monospace;
+    /* font-family: monospace; */
     line-height: 16pt;
+	font-weight: 100;
 }
 
 .btn-circle {
