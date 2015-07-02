@@ -14,10 +14,9 @@ $(function() {
     handshaking_module(ready);
 
     function ready() {
-
         // Set Up Tally
-        if (identity.role[0].inputID !== 0) {
-            tally_module(identity.role[0].inputID, '#display');
+        if (identity.role[0].inputNumber !== 0) { // might want to change that in the future since source 0 is "Black" in the Atem. -1? undefined?
+            tally_module(identity.role[0].inputNumber, '#display');
             $('#tally span').text(identity.role[0].shortName);
         }
 
