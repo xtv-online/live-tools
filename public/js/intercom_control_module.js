@@ -7,7 +7,7 @@ function intercom_control_module(localPlaybackAudio){
     connectToBroker(identity._id, callClients);
 
     function callClients() {
-        $.getJSON('http://localhost:3000/clients/api', function(data) {
+        $.getJSON(location.protocol + '//' + location.host + '/clients/api', function(data) {
             data.forEach(function(role) {
                 if (role.hasTalkBack) {
                     addButtons(role.shortName, role._id);
@@ -38,7 +38,7 @@ function intercom_control_module(localPlaybackAudio){
           function(err) {
             console.log('Failed to get local stream' ,err);
         });
-        
+
     };
 
     function addButtons(roleName, roleId){
@@ -66,8 +66,8 @@ function intercom_control_module(localPlaybackAudio){
         });
         // send signal to all clients that not muted
     };
-    
-    
+
+
     // mute director's playback on selected role
     function muteTx(){
         buttonId = $(this).attr('id')
@@ -82,21 +82,21 @@ function intercom_control_module(localPlaybackAudio){
     };
 
     function muteRx(){
-        
+
     };
-    
+
     socket.on('director: client not listening', function(roleId){
         socket.emit('tell client to not listen to director', roleId);
         $("#" + roleId + "-muteTx").removeClass( 'btn-success' );
         $("#" + roleId + "-muteTx").addClass( 'btn-danger' );
     });
-    
+
     socket.on('director: client listening', function(roleId){
         socket.emit('tell client to listen to director', roleId);
         $("#" + roleId + "-muteTx").addClass( 'btn-success' );
         $("#" + roleId + "-muteTx").removeClass( 'btn-danger' );
     });
-    
-    
-    
+
+
+
 }
