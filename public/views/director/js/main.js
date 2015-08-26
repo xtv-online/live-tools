@@ -3,9 +3,9 @@ $(function() {
     $("#timeofday").click(function() {
         addButtons('CAM1');
     });
-    
+
     handshaking_module(ready);
-    
+
     socket.on('custom active', function(customActive){
         toggleSelector = "#cdtoggle"
         if (customActive){
@@ -22,7 +22,7 @@ $(function() {
             };
         };
     });
-    
+
     function ready() {
 
         // Set Up Tally
@@ -44,19 +44,19 @@ $(function() {
         messaging_module_initialise(newMessage, newAcknowledgement);
 
         // Setup RX time display
-        txtime_module('#livetimer', '#livestatusText', '#livestatus'); 
+        txtime_module('#livetimer', '#livestatusText', '#livestatus');
 
         // Setup intercom controllers
         intercom_control_module();
-            
+
         // init countdown
         $("#cdtoggle").trigger( "click" );
 
     }
-    
+
     // toggle on air status
     var liveMouseDown;
-    
+
     $('#livestatus').mousedown(function() {
         liveMouseDown = setTimeout(function() {
             switch($('#livestatus').css('background-color')) {
@@ -74,50 +74,40 @@ $(function() {
             clearTimeout(liveMouseDown);
         }
     });
-    
+
     $('#cdadd1m').click(function() {
         socket.emit('custom countdown 1m');
     });
-    
+
     $('#cdadd10s').click(function() {
         socket.emit('custom countdown 10s');
     });
-    
+
     $('#cdreset').click(function() {
         socket.emit('reset custom countdown');
     });
-    
+
     $('#cdgo').click(function() {
         socket.emit('toggle custom countdown');
     });
-    
+
     $('#cdtoggle').click(function() {
         socket.emit('toggle countdowns');
     });
-    
+
     $('#sndMsg').click(function() {
         messaging_module_broadcastMessage($('#customMessage').val());
         $('#msgModal').modal('hide');
         $('#customMessage').val("");
     });
-    
+
     function newAcknowledgement(sender) {
         console.log('Acknowledgement from ' + sender);
     }
-    
+
     function newMessage(message, sender) {
         console.log('Message from ' + sender, message);
     }
-    
-    
+
+
 });
-
-/* NEED:
-  * unique ID of this (director) client
-  * unique ID of all clients per role
-    (i.e. CAM1: 0328, 0523; CAM2: 0542)
-  * function to broadcast data to all clients of certain role
-  * event for incoming data from any role.
-*/
-
-// connect to broker for peer ID
