@@ -43,8 +43,6 @@
 </head>
 
 <body>
-    <!-- Log Out Button -->
-    <button class="btn btn-default" style="position:absolute; z-index:10; bottom:12px; left:12px;" onclick="localStorage.removeItem('identity'); document.location.href='/';"><span class="glyphicon glyphicon-log-out"></span></button>
     <!-- Players for Intercom -->
     <div id="playback"></div>
     <!-- View -->
@@ -105,6 +103,7 @@
                   </div>
                 </div>
 
+                </div>
             </div>
         </div>
         <!-- End Row 1-->
@@ -213,6 +212,14 @@
         </div>
         <!-- End Row 3-->
 
+        <div id="row4" class="row">
+            <!-- Log Out Button -->
+            <div class="footer-container">
+                <div class="btn-group ">
+                    <button class="btn" style="position:absolute; z-index:10; bottom:12px; left:12px;" onclick="localStorage.removeItem('identity'); document.location.href='/';"><span class="glyphicon glyphicon-log-out"></span></button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
