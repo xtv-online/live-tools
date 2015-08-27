@@ -34,7 +34,7 @@ $(function() {
 
         // Setup TX time display
         txtime_module('', '', '', liveStatusTrigger);
-        
+
         // Setup intercom buttons
         intercom_listen_module("#muteDir", "#director-playback", "#localTx");
 
@@ -72,4 +72,15 @@ $(function() {
             $('#liveSymbol').hide(400);
         }
     }
+
+    $('#requestFullscreen').click(function() {
+        var
+          el = document.body
+        , rfs =
+               el.requestFullScreen
+            || el.webkitRequestFullScreen
+            || el.mozRequestFullScreen
+        ;
+        rfs.call(el);
+    })
 });
