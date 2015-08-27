@@ -55,6 +55,14 @@ To avoid problems, make sure that no devices have an automatic screen turn-off o
 
 A possible suggestion to fix this is to move the mute/listening states into a session-long database, so state is saved on the server, and on reconnect of each client (director or other), the mute/unmute states are re-established from what is saved in the database.
 
+### iOS
+Intercom & Fullscreen mode not fully supported on iOS. This is a limitation by Apple and cannot be solved with a web-app
+
+### Compatibility
+We recommend to use Chrome for the director and the camera clients.
+Firefox currently shows issues with the intercom, this is due to an issue with peerJS and should be fixable.
+We do not recommend the use of Safari.
+Microsoft EDGE and the latest version of Internet Explorer should be working, but this has not been tested.
 ### Others
 * Message acknowledgement is still work in progress
 * Scheduling has not been implemented
