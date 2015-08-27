@@ -1,6 +1,18 @@
 # Lito
 A node.js based system for providing show critical services on XTV live broadcasts.
-Developed by Sam Hutchings and Niklas Rahmel
+
+*Developed by Sam Hutchings and Niklas Rahmel*
+
+## Features
+* Tally read from ATEM and displayed to Cam OP automatically (Green/Red/Yellow for PRV/PGM/AUX)
+* Time remaining from VT played on CasparCG displayed automatically (Custom Channel/Layer)
+* Intercom for Director and all others using WebRTC
+* Message from Director to all others
+* Show Acknowledgement from all to director
+* Time of Day Display
+* ON AIR indicator (manually togglable by director)
+* Custom Countdown to be programmed by Director for display on multiview & Cam Op
+* All web-based, no special software needs to be installed: run the application straight from all HTML5 browsers
 
 ## Set-Up
 Make sure to copy `/public/js/default.config.js` to `config.js` and fill out the necessary info.
@@ -36,7 +48,7 @@ Camera Operator's view with
 * Fullscreen
 * Intercom control
 
-***Background colour*** changes depending on input's tally status (dark purple for stand-by, green if on PRV, red if on PGM)
+***Background colour*** changes depending on input's tally status (dark purple for stand-by, green if on PRV, red if on PGM).
 
 ### Multiview
 ![Screenshot](/screenshots/multiview.png?raw=true)
@@ -50,7 +62,8 @@ Multiview display (set to 1920*1080) with
 ### Config
 ![Screenshot](/screenshots/config.png?raw=true)
 Configuration of ATEM and CasparCG connections.
-The selected ATEM is checked for Tally and the selected layer/channel combination on the CasparCG server is checked for the VT countdown
+
+The selected ATEM is checked for Tally and the selected layer/channel combination on the CasparCG server is checked for the VT countdown.
 
 ### Roles
 ![Screenshot](/screenshots/roles.png?raw=true)
@@ -69,7 +82,7 @@ To avoid problems, make sure that no devices have an automatic screen turn-off o
 A possible suggestion to fix this is to move the mute/listening states into a session-long database, so state is saved on the server, and on reconnect of each client (director or other), the mute/unmute states are re-established from what is saved in the database.
 
 ### iOS
-Intercom & Fullscreen mode not fully supported on iOS. This is a limitation by Apple and cannot be solved with a web-app
+Intercom & Fullscreen mode not fully supported on iOS. This is a limitation by Apple and cannot be solved with a web-app.
 
 ### Compatibility
 We recommend to use Chrome for the director and the camera clients.
