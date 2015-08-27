@@ -4,6 +4,20 @@ A node.js based system for providing show critical services on XTV live broadcas
 ## Set-Up
 Make sure to copy `/public/js/default.config.js` to `config.js` and fill out the necessary info.
 
+## Screenshots
+### Director's view
+![Screenshot](https://raw.githubusercontent.com/xtv-online/live-tools/master/screenshots/director_view.png)
+Director's view with
+* Time of Day
+* Time since TX started
+* ON AIR indicator
+* Countdown (Custom and VT Remaining Time)
+* Countdown settings
+* Broadcast Message
+* Intercom control with Tally and ACK indicators
+* Schedule (not implemented)
+* Log Out
+
 ## Known Issues
 ### Intercom
 There may be issues with the intercom functionality if the page is reloaded by anybody after the director view has been loaded.
