@@ -90,5 +90,4 @@ Firefox currently shows issues with the intercom, this is due to an issue with p
 We do not recommend the use of Safari.
 Microsoft EDGE and the latest version of Internet Explorer should be working, but this has not been tested.
 ### Others
-* Message acknowledgement is still work in progress
 * Scheduling has not been implemented
