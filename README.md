@@ -39,6 +39,15 @@ Multiview display (set to 1920*1080) with
 * Director's Countdown
 * Remaining time on VT
 
+### Config
+![Screenshot](/screenshots/config.png?raw=true)
+Configuration of ATEM and CasparCG connections.
+The selected ATEM is checked for Tally and the selected layer/channel combination on the CasparCG server is checked for the VT countdown
+
+### Roles
+![Screenshot](/screenshots/roles.png?raw=true)
+Set up roles for log-in.
+
 ## Known Issues
 ### Intercom
 There may be issues with the intercom functionality if the page is reloaded by anybody after the director view has been loaded.
