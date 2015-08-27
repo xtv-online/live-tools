@@ -3,3 +3,8 @@
 {"roleName":"Camera 2 is stup","shortName":"CAM2","roleCategory":"camera","location":"Studio","inputNumber":2,"hasTalkBack":true,"_id":"LcJOVOiefsobrFWe"}
 {"roleName":"Director Person","shortName":"DIR","roleCategory":"director","location":"Gallery","inputNumber":0,"hasTalkBack":false,"_id":"od1NGULaAPXsHs1B"}
 {"roleName":"Multiview","shortName":"MLTV","roleCategory":"multiview","location":"","inputNumber":0,"hasTalkBack":false,"_id":"qbiWQ6ypr4JXQ8BR"}
+{"roleName":"Camera 1 - NIK","shortName":"CAM1","roleCategory":"camera","location":"Studio","inputNumber":1,"hasTalkBack":true,"_id":"452qPzXqYWl74z17"}
+{"roleName":"Camera 2 is stup","shortName":"CAM2","roleCategory":"camera","location":"Studio","inputNumber":2,"hasTalkBack":true,"_id":"LcJOVOiefsobrFWe"}
+{"roleName":"Director","shortName":"DIR","roleCategory":"director","location":"Gallery","inputNumber":0,"hasTalkBack":false,"_id":"od1NGULaAPXsHs1B"}
+{"roleName":"Multiview","shortName":"MLTV","roleCategory":"multiview","location":"","inputNumber":0,"hasTalkBack":false,"_id":"qbiWQ6ypr4JXQ8BR"}
+{"roleName":"Sound","shortName":"SFX","roleCategory":"general","location":"Gallery","inputNumber":0,"hasTalkBack":true,"_id":"7g1ZhQYbSPjH6B0a"}

@@ -20,6 +20,25 @@ Director's view with
 * Schedule (not implemented)
 * Log Out
 
+### Cam Op view
+![Screenshot](/screenshots/camera_view_message.png?raw=true)
+Camera Operator's view with
+* Assigned short name
+* ON AIR indicator (little L)
+* Time of Day
+* Countdown (Director's set or VT remaining)
+* Message from Director & acknowledgement button
+Background colour changes depending on input's tally status (dark purple for stand-by, green if on PRV, red if on PGM)
+
+### Multiview
+![Screenshot](/screenshots/multiview.png?raw=true)
+Multiview display (set to 1920*1080) with
+* Time of Day
+* ON AIR status
+* Time since TX
+* Director's Countdown
+* Remaining time on VT
+
 ## Known Issues
 ### Intercom
 There may be issues with the intercom functionality if the page is reloaded by anybody after the director view has been loaded.
