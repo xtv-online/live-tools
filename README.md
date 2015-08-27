@@ -4,7 +4,7 @@ Developed by Sam Hutchings and Niklas Rahmel
 
 ## Set-Up
 Make sure to copy `/public/js/default.config.js` to `config.js` and fill out the necessary info.
-Pull all necessary npm packages and you're ready to go!
+Pull all necessary npm packages with a `npm install` and you're ready to go: `node .`!
 
 Settings for Server connections are available at <http://localhost:3000/config/> (or equivalent).
 
