@@ -6,7 +6,7 @@ Make sure to copy `/public/js/default.config.js` to `config.js` and fill out the
 
 ## Screenshots
 ### Director's view
-![Screenshot](https://raw.githubusercontent.com/xtv-online/live-tools/master/screenshots/director_view.png)
+![Screenshot](/screenshots/director_view.png?raw=true)
 Director's view with
 * Time of Day
 * Time since TX started
