@@ -10,13 +10,14 @@ function intercom_control_module(localPlaybackAudio){
         $.getJSON(location.protocol + '//' + location.host + '/clients/api', function(data) {
             data.forEach(function(role) {
                 if (role.hasTalkBack) {
-                    addButtons(role.shortName, role._id);
-                    console.log(role);
+                    enableButton = false;
                     role.clients.forEach(function(client) {
                         if (client.isWebRtcCapable) {
                             startCall(client._id)
+                            enableButton = true;
                         }
                     });
+                    addButtons(role.shortName, role._id, enableButton);
                 }
             });
             clientData = data;
@@ -42,13 +43,20 @@ function intercom_control_module(localPlaybackAudio){
 
     };
 
-    function addButtons(roleName, roleId){
+    function addButtons(roleName, roleId, callActive){
         // add Tally
         $('<div class="point" id="' + roleId + '-tally"></div>').appendTo('#tallyIndicator');
-        // add TX button
-        $('<button class="btn-circle-lg btn btn-success txButton" id="' + roleId + '-muteTx"' + '>' + roleName + '</button>').bind("click", muteTx).appendTo('#txControl');
-        // add RX button
-        $('<button class="btn-circle-lg btn btn-success rxButton" id="' + roleId + '-muteRx"' + '>' + roleName + '</button>').bind("click", muteRx).appendTo('#rxControl');
+        if (callActive){
+            // add TX button
+            $('<button class="btn-circle-lg btn btn-success txButton" id="' + roleId + '-muteTx"' + '>' + roleName + '</button>').bind("click", muteTx).appendTo('#txControl');
+            // add RX button
+            $('<button class="btn-circle-lg btn btn-success rxButton" id="' + roleId + '-muteRx"' + '>' + roleName + '</button>').bind("click", muteRx).appendTo('#rxControl');
+        } else {
+            // add TX button
+            $('<button class="btn-circle-lg btn btn-default txButton" id="' + roleId + '-muteTx"' + '>' + roleName + '</button>').appendTo('#txControl');
+            // add RX button
+            $('<button class="btn-circle-lg btn btn-default rxButton" id="' + roleId + '-muteRx"' + '>' + roleName + '</button>').appendTo('#rxControl');
+        }
         // add Status
         $('<div class="point" id="' + roleId + '-statu"></div>').appendTo('#statusIndicator');
     };
