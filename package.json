@@ -1,6 +1,6 @@
 {
   "name": "live-tools",
-  "version": "0.0.1",
+  "version": "1.0-beta.1",
   "description": "A node.js based system providing various functionality during live broadcasts.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/xtv-online/live-tools.git"
   },
   "author": "Sam Hutchings, Nik Rahmel",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/xtv-online/live-tools/issues"
   },
