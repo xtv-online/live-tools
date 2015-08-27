@@ -58,7 +58,7 @@ function intercom_control_module(localPlaybackAudio){
             $('<button class="btn-circle-lg btn btn-default rxButton" id="' + roleId + '-muteRx"' + '>' + roleName + '</button>').appendTo('#rxControl');
         }
         // add Status
-        $('<div class="point" id="' + roleId + '-statu"></div>').appendTo('#statusIndicator');
+        $('<div class="point status" id="' + roleId + '-status"></div>').appendTo('#statusIndicator');
     };
 
     function startCall(destination)

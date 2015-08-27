@@ -97,12 +97,14 @@ $(function() {
 
     $('#sndMsg').click(function() {
         messaging_module_broadcastMessage($('#customMessage').val());
+        $('.status').css("background", "linear-gradient(to bottom, #F0AD4E 0px, #EB9316 100%)");
         $('#msgModal').modal('hide');
         $('#customMessage').val("");
     });
 
-    function newAcknowledgement(sender) {
-        console.log('Acknowledgement from ' + sender);
+    function newAcknowledgement(senderId) {
+        console.log('Acknowledgement from ' + senderId);
+        $('#' + senderId +'-status').css("background", "linear-gradient(to bottom, #5CB85C 0px, #419641 100%)");
     }
 
     function newMessage(message, sender) {
