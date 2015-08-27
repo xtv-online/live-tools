@@ -6,6 +6,10 @@ Developed by Sam Hutchings and Niklas Rahmel
 Make sure to copy `/public/js/default.config.js` to `config.js` and fill out the necessary info.
 Pull all necessary npm packages and you're ready to go!
 
+Settings for Server connections are available at <http://localhost:3000/config/> (or equivalent).
+
+Role configuration is available at <http://localhost:3000/roles/> (or equivalent).
+
 ## Screenshots
 ### Director's view
 ![Screenshot](/screenshots/director_view.png?raw=true)
