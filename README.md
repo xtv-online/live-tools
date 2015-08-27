@@ -4,7 +4,11 @@ Developed by Sam Hutchings and Niklas Rahmel
 
 ## Set-Up
 Make sure to copy `/public/js/default.config.js` to `config.js` and fill out the necessary info.
-Pull all necessary npm packages and you're ready to go!
+Pull all necessary npm packages with a `npm install` and you're ready to go: `node .`!
+
+Settings for Server connections are available at <http://localhost:3000/config/> (or equivalent).
+
+Role configuration is available at <http://localhost:3000/roles/> (or equivalent).
 
 ## Screenshots
 ### Director's view
@@ -12,7 +16,7 @@ Pull all necessary npm packages and you're ready to go!
 Director's view with
 * Time of Day
 * Time since TX started
-* ON AIR indicator
+* ON AIR indicator (click and hold to toggle)
 * Countdown (Custom and VT Remaining Time)
 * Countdown settings
 * Broadcast Message
@@ -28,7 +32,11 @@ Camera Operator's view with
 * Time of Day
 * Countdown (Director's set or VT remaining)
 * Message from Director & acknowledgement button
-Background colour changes depending on input's tally status (dark purple for stand-by, green if on PRV, red if on PGM)
+* Log-Out
+* Fullscreen
+* Intercom control
+
+***Background colour*** changes depending on input's tally status (dark purple for stand-by, green if on PRV, red if on PGM)
 
 ### Multiview
 ![Screenshot](/screenshots/multiview.png?raw=true)
@@ -60,6 +68,14 @@ To avoid problems, make sure that no devices have an automatic screen turn-off o
 
 A possible suggestion to fix this is to move the mute/listening states into a session-long database, so state is saved on the server, and on reconnect of each client (director or other), the mute/unmute states are re-established from what is saved in the database.
 
+### iOS
+Intercom & Fullscreen mode not fully supported on iOS. This is a limitation by Apple and cannot be solved with a web-app
+
+### Compatibility
+We recommend to use Chrome for the director and the camera clients.
+Firefox currently shows issues with the intercom, this is due to an issue with peerJS and should be fixable.
+We do not recommend the use of Safari.
+Microsoft EDGE and the latest version of Internet Explorer should be working, but this has not been tested.
 ### Others
 * Message acknowledgement is still work in progress
 * Scheduling has not been implemented
