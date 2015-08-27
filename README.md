@@ -28,6 +28,9 @@ Camera Operator's view with
 * Time of Day
 * Countdown (Director's set or VT remaining)
 * Message from Director & acknowledgement button
+* Log-Out
+* Fullscreen
+* Intercom control
 Background colour changes depending on input's tally status (dark purple for stand-by, green if on PRV, red if on PGM)
 
 ### Multiview
