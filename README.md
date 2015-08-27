@@ -16,7 +16,7 @@ Role configuration is available at <http://localhost:3000/roles/> (or equivalent
 Director's view with
 * Time of Day
 * Time since TX started
-* ON AIR indicator
+* ON AIR indicator (click and hold to toggle)
 * Countdown (Custom and VT Remaining Time)
 * Countdown settings
 * Broadcast Message
