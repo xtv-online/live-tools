@@ -134,15 +134,12 @@ function intercom_control_module(localPlaybackAudio){
     // A1
     socket.on('director: client not listening', function(roleId){
         // B2
-        socket.emit('tell client to not listen to director', roleId);
         $("#" + roleId + "-muteTx").removeClass( 'btn-success' );
         $("#" + roleId + "-muteTx").addClass( 'btn-danger' );
     });
 
     // A2
     socket.on('director: client listening', function(roleId){
-        // B1
-        socket.emit('tell client to listen to director', roleId);
         $("#" + roleId + "-muteTx").addClass( 'btn-success' );
         $("#" + roleId + "-muteTx").removeClass( 'btn-danger' );
     });
