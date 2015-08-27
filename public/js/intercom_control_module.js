@@ -89,42 +89,47 @@ function intercom_control_module(localPlaybackAudio){
         roleToMute = buttonId.substring(0, $(this).attr('id').length - 7);
         if ($("#" + buttonId).hasClass( 'btn-danger' )) {
             // unmute
-            clientData.forEach(function(role) {
-                if(role._id == roleToMute){
-                    role.clients.forEach(function(client) {
-                        document.getElementById(client._id + '-player').muted = false;
-                    })
-                }
-                else {
-                    console.log(':(');
-                }
-            });
-
-            // B4
-            socket.emit('tell client that director is listening', roleToMute);
-            $(this).removeClass( 'btn-danger' );
-            $(this).addClass( 'btn-success' );
-
+            unmutePlayer(roleToMute);
         } else {
             // mute
-            clientData.forEach(function(role) {
-                if(role._id == roleToMute){
-                    role.clients.forEach(function(client) {
-                        document.getElementById(client._id + '-player').muted = true;
-                    })
-                }
-                else {
-                    console.log(':(');
-                }
-            });
-            // B3
-            socket.emit('tell client that director is not listening', roleToMute);
-            $(this).removeClass( 'btn-success' );
-            $(this).addClass( 'btn-danger' );
-
+            mutePlayer(roleToMute);
         };
-
     };
+
+    function mutePlayer(playerId){
+        clientData.forEach(function(role) {
+            if(role._id == playerId){
+                role.clients.forEach(function(client) {
+                    document.getElementById(client._id + '-player').muted = true;
+                })
+            }
+            else {
+                console.log(':(');
+            }
+        });
+        // B3
+        socket.emit('tell client that director is not listening', roleToMute);
+        $('#' + playerId + '-muteRx').removeClass( 'btn-success' );
+        $('#' + playerId + '-muteRx').addClass( 'btn-danger' );
+    }
+
+    function unmutePlayer(playerId){
+        clientData.forEach(function(role) {
+            if(role._id == playerId){
+                role.clients.forEach(function(client) {
+                    document.getElementById(client._id + '-player').muted = false;
+                })
+            }
+            else {
+                console.log(':(');
+            }
+        });
+
+        // B4
+        socket.emit('tell client that director is listening', roleToMute);
+        $('#' + playerId + '-muteRx').removeClass( 'btn-danger' );
+        $('#' + playerId + '-muteRx').addClass( 'btn-success' );
+    }
 
     // A1
     socket.on('director: client not listening', function(roleId){
@@ -142,6 +147,15 @@ function intercom_control_module(localPlaybackAudio){
         $("#" + roleId + "-muteTx").removeClass( 'btn-danger' );
     });
 
+    //A3
+    socket.on('director: listen to client', function(roleId){
+        // unmute if muted
+        unmutePlayer(roleId);
+    });
 
-
+    //A4
+    socket.on('director: stop listening to client', function(roleId){
+        // unmute if muted
+        mutePlayer(roleId);
+    });
 }
