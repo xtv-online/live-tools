@@ -31,7 +31,8 @@ Camera Operator's view with
 * Log-Out
 * Fullscreen
 * Intercom control
-Background colour changes depending on input's tally status (dark purple for stand-by, green if on PRV, red if on PGM)
+
+***Background colour*** changes depending on input's tally status (dark purple for stand-by, green if on PRV, red if on PGM)
 
 ### Multiview
 ![Screenshot](/screenshots/multiview.png?raw=true)
