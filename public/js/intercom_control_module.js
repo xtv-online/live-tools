@@ -133,7 +133,6 @@ function intercom_control_module(localPlaybackAudio){
 
     // A1
     socket.on('director: client not listening', function(roleId){
-        // B2
         $("#" + roleId + "-muteTx").removeClass( 'btn-success' );
         $("#" + roleId + "-muteTx").addClass( 'btn-danger' );
     });
