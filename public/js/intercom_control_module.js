@@ -1,3 +1,45 @@
+/*
+ * So how does this work?
+ * - When director starts programme, it calls all 
+ *   others that are connected and have WebRTC functionality.
+ * - An HTML5 <audio> element is created on the client's side
+ *   to listen to the director
+ * - For each clieant, an HTML5 <audio> element is created on
+ *   the director's side
+ * - Audio data is sent through the WebRTC connection by peerJS
+ * - Mute/Unmute data is sent through socket.io websockets
+ * - Clients can
+ *   a. mute/unmute the director:
+ *      - <audio> element is set to muted/unmuted
+ *      - director is sent notification (A1/A2)
+ *      - the buttons change colour 
+ *      - These are actions A1 & A2
+ *   b. mute/unmute themselves for the director:
+ *      - notification is sent to director
+ *      - director's <audio> playback element for
+ *        that role is muted/unmuted
+ *      - director sends confirmation back (B3/B4)
+ *      - buttons change colour when confirmation
+ *        received
+ *      - These are actions A3 & A4
+ * - The Director can
+ *   a. mute/unmute clients individually
+ *      - <audio> playback element for that role
+ *        is muted/unmuted
+ *      - clients are sent notification (B3/B4)
+ *      - buttons change colour
+ *      - These are actions B3 & B4
+ *   b. mute/unmute themselves for each client
+ *      - notification is sent to client (B1/B2)
+ *      - director's <audio> playback element on
+ *        client's side is muted
+ *      - client sends confirmation back (A2/A1)
+ *      - buttons change colour
+ *      - These are actions B1 & B2.
+ * Please see issue #5 on github for more detail.
+ * */
+
+
 function intercom_control_module(localPlaybackAudio){
     var localstream;
     var peer;
