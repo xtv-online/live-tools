@@ -7,20 +7,20 @@ $(function() {
     handshaking_module(ready);
 
     socket.on('custom active', function(customActive){
-        toggleSelector = "#cdtoggle"
+        toggleSelector = "#cdtoggle";
         if (customActive){
             if ($(toggleSelector).hasClass( 'btn-danger' )) {
                 $(toggleSelector).toggleClass( 'btn-success' );
                 $(toggleSelector).toggleClass( 'btn-danger' );
                 $(toggleSelector).text('Show VT');
-            };
+            }
         } else {
             if ($(toggleSelector).hasClass( 'btn-success' )) {
                 $(toggleSelector).toggleClass( 'btn-success' );
                 $(toggleSelector).toggleClass( 'btn-danger' );
                 $(toggleSelector).text('Custom');
-            };
-        };
+            }
+        }
     });
 
     function ready() {
@@ -46,8 +46,10 @@ $(function() {
         // Setup RX time display
         txtime_module('#livetimer', '#livestatusText', '#livestatus');
 
-        // Setup intercom controllers
-        intercom_control_module();
+        if (identity.isWebRtcCapable) {
+            // Setup intercom controllers
+            intercom_control_module();
+        }
 
         // init countdown
         $("#cdtoggle").trigger( "click" );
